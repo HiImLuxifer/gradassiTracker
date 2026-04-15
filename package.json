@@ -1,0 +1,16 @@
+{
+  "name": "collectrics-ita",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "update-prices": "node scripts/update-prices.js"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "vite": "^6.0.0"
+  }
+}
