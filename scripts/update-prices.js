@@ -100,6 +100,8 @@ async function runUpdate() {
       const sealedBps = blueprints.filter(b => [67, 68, 60, 59].includes(b.category_id));
       let bbPrice = null;
       let etbPrice = null;
+      let bbBlueprintId = null;
+      let etbBlueprintId = null;
       for (const bp of sealedBps) {
          const nameLower = bp.name.toLowerCase();
          const isBB = nameLower.includes('booster box') && !nameLower.includes('case');
@@ -116,18 +118,27 @@ async function runUpdate() {
                  for(const k of Object.keys(pRes)) arr = arr.concat(pRes[k]);
                }
                // valid IT sealed
-               const valid = arr.filter(p => p.pokemon_language === 'it' || p.properties_hash?.pokemon_language === 'it' || p.language === 'it' || !p.properties_hash?.pokemon_language); // Sealed in EN/Other allowed if no IT? actually let's stick to IT or null
+               const valid = arr.filter(p => p.pokemon_language === 'it' || p.properties_hash?.pokemon_language === 'it' || p.language === 'it' || !p.properties_hash?.pokemon_language);
                if (valid.length > 0) {
                   const minP = Math.min(...valid.map(p => p.price.cents)) / 100;
                   // If we find a bundle but already found a real box, do not overwrite. If box not found, use bundle.
-                  if (isBB && !bbPrice) bbPrice = minP;
-                  if (isBundle && !bbPrice) bbPrice = minP; 
-                  if (isETB && !etbPrice) etbPrice = minP;
+                  if (isBB && !bbPrice) {
+                    bbPrice = minP;
+                    bbBlueprintId = bp.id;
+                  }
+                  if (isBundle && !bbPrice) {
+                    bbPrice = minP;
+                    bbBlueprintId = bp.id;
+                  }
+                  if (isETB && !etbPrice) {
+                    etbPrice = minP;
+                    etbBlueprintId = bp.id;
+                  }
                }
             } catch(e) {}
          }
       }
-      finalData.sealed[set.id] = { bbPrice, etbPrice, name: setIt.name };
+      finalData.sealed[set.id] = { bbPrice, etbPrice, bbBlueprintId, etbBlueprintId, name: setIt.name };
       console.log(`  📦 Dati Sealed -> BB/Bundle: ${bbPrice || 'N/D'}€, ETB: ${etbPrice || 'N/D'}€`);
       // ---- FINE ESTRAZIONE SEALED ----
 
@@ -189,7 +200,8 @@ async function runUpdate() {
               setName: setIt.name,
               image: fullCardIt.image,
               rarity: fullCardIt.rarity || '—',
-              priceITNM: minPrice
+              priceITNM: minPrice,
+              blueprintId: matchingBp.id
             };
             console.log(`✅ Minimo ITA/NM: €${minPrice}`);
           } else {
@@ -202,7 +214,8 @@ async function runUpdate() {
                   setName: setIt.name,
                   image: fullCardIt.image,
                   rarity: fullCardIt.rarity || '—',
-                  priceITNM: parseFloat((fbPrice * 1.05).toFixed(2)) // Applicato un mini premium su ITA
+                  priceITNM: parseFloat((fbPrice * 1.05).toFixed(2)), // Applicato un mini premium su ITA
+                  blueprintId: matchingBp.id
                 };
             }
           }

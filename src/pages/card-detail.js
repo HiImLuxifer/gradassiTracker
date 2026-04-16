@@ -10,12 +10,16 @@ export async function renderCardDetail(container, cardId) {
   let priceSourceLabel = 'Minimo Globale';
   
   // Applica prezzo locale accurato se esiste
+  let bpId = null;
   const localData = await getLocalPrices();
   if (localData && localData.cards && localData.cards[cardId]) {
     const localCard = localData.cards[cardId];
     if (localCard.priceITNM) {
       cmLow = localCard.priceITNM;
       priceSourceLabel = 'Minimo ITA / Near Mint';
+    }
+    if (localCard.blueprintId) {
+      bpId = localCard.blueprintId;
     }
   }
 
@@ -117,10 +121,10 @@ export async function renderCardDetail(container, cardId) {
 
           ${pricing || localData?.cards[cardId] ? `
             <div style="text-align:center;margin-top:0.5rem;">
-              <a href="https://www.cardtrader.com/it/search?query=${encodeURIComponent(card.name || '')}"
+              <a href="${bpId ? `https://www.cardtrader.com/it/search?blueprint_id=${bpId}` : `https://www.cardtrader.com/it/search?query=${encodeURIComponent(card.name || '')}`}"
                  target="_blank" rel="noopener"
                  class="btn btn-primary">
-                🛒 Cerca su CardTrader
+                🛒 Vedi su CardTrader
               </a>
             </div>
           ` : ''}

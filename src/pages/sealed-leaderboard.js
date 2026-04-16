@@ -8,56 +8,48 @@ const BOOSTER_BOXES = [
     setId: 'sv08',
     price: 125.00,
     image: 'https://assets.tcgdex.net/it/sv/sv08/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Surging-Sparks-Booster-Box',
   },
   {
     name: 'Corona Astrale',
     setId: 'sv07',
     price: 110.00,
     image: 'https://assets.tcgdex.net/it/sv/sv07/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Stellar-Crown-Booster-Box',
   },
   {
     name: 'Destino di Paldea',
     setId: 'sv04.5',
     price: 45.00, // Booster Bundle since no Booster Box exists
     image: 'https://assets.tcgdex.net/it/sv/sv04.5/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Paldean-Fates-Booster-Bundle',
   },
   {
     name: 'Forze Temporali',
     setId: 'sv05',
     price: 105.00,
     image: 'https://assets.tcgdex.net/it/sv/sv05/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Temporal-Forces-Booster-Box',
   },
   {
     name: 'Ossidiana Infuocata',
     setId: 'sv03',
     price: 105.00,
     image: 'https://assets.tcgdex.net/it/sv/sv03/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Obsidian-Flames-Booster-Box',
   },
   {
     name: 'Evoluzioni a Paldea',
     setId: 'sv02',
     price: 135.00,
     image: 'https://assets.tcgdex.net/it/sv/sv02/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Paldea-Evolved-Booster-Box',
   },
   {
     name: '151',
     setId: 'sv03.5',
     price: 65.00, // Booster Bundle since no Booster Box exists
     image: 'https://assets.tcgdex.net/it/sv/sv03.5/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes',
   },
   {
     name: 'Scarlatto e Violetto',
     setId: 'sv01',
     price: 95.00,
     image: 'https://assets.tcgdex.net/it/sv/sv01/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Booster-Boxes/Scarlet-Violet-Booster-Box',
   },
 ];
 
@@ -67,56 +59,48 @@ const ETB_BOXES = [
     setId: 'sv08',
     price: 45.00,
     image: 'https://assets.tcgdex.net/it/sv/sv08/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Surging-Sparks-Elite-Trainer-Box',
   },
   {
     name: 'Corona Astrale',
     setId: 'sv07',
     price: 40.00,
     image: 'https://assets.tcgdex.net/it/sv/sv07/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Stellar-Crown-Elite-Trainer-Box',
   },
   {
     name: 'Destino di Paldea',
     setId: 'sv04.5',
     price: 45.00,
     image: 'https://assets.tcgdex.net/it/sv/sv04.5/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Paldean-Fates-Elite-Trainer-Box',
   },
   {
     name: 'Forze Temporali',
     setId: 'sv05',
     price: 40.00,
     image: 'https://assets.tcgdex.net/it/sv/sv05/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Temporal-Forces-Elite-Trainer-Box',
   },
   {
     name: 'Ossidiana Infuocata',
     setId: 'sv03',
     price: 40.00,
     image: 'https://assets.tcgdex.net/it/sv/sv03/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Obsidian-Flames-Elite-Trainer-Box',
   },
   {
     name: 'Evoluzioni a Paldea',
     setId: 'sv02',
     price: 40.00,
     image: 'https://assets.tcgdex.net/it/sv/sv02/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Paldea-Evolved-Elite-Trainer-Box',
   },
   {
     name: '151',
     setId: 'sv03.5',
     price: 65.00,
     image: 'https://assets.tcgdex.net/it/sv/sv03.5/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes',
   },
   {
     name: 'Scarlatto e Violetto',
     setId: 'sv01',
     price: 40.00,
     image: 'https://assets.tcgdex.net/it/sv/sv01/logo.webp',
-    cardmarket: 'https://www.cardmarket.com/it/Pokemon/Products/Elite-Trainer-Boxes/Scarlet-Violet-Elite-Trainer-Box',
   },
 ];
 
@@ -220,11 +204,17 @@ export async function renderSealedLeaderboard(container) {
 
       BOOSTER_BOXES.forEach(box => {
          const sl = localData.sealed[box.setId];
-         if (sl && sl.bbPrice) box.price = sl.bbPrice;
+         if (sl) {
+            if (sl.bbPrice) box.price = sl.bbPrice;
+            if (sl.bbBlueprintId) box.blueprintId = sl.bbBlueprintId;
+         }
       });
       ETB_BOXES.forEach(box => {
          const sl = localData.sealed[box.setId];
-         if (sl && sl.etbPrice) box.price = sl.etbPrice;
+         if (sl) {
+            if (sl.etbPrice) box.price = sl.etbPrice;
+            if (sl.etbBlueprintId) box.blueprintId = sl.etbBlueprintId;
+         }
       });
       const subtitle = container.querySelector('.page-subtitle');
       if (subtitle && localData.updatedAt) {
@@ -250,11 +240,6 @@ export async function renderSealedLeaderboard(container) {
   });
 }
 
-function cardSharesSetId(card, setId) {
-  // A naive check since finalData does not store setId directly
-  return card.image && card.image.includes(setId);
-}
-
 function updateSealedTables() {
   const sort = document.getElementById('sealed-lb-sort')?.value || 'price-desc';
 
@@ -271,12 +256,17 @@ function updateSealedTables() {
 
   const boosterBody = document.getElementById('sealed-booster-body');
   if (boosterBody) {
-    boosterBody.innerHTML = sortedBooster.map((item, i) => renderSealedRow(item, i)).join('');
+    boosterBody.innerHTML = sortedBooster.map((item, i) => {
+      // Pass blueprintId if found in dynamic update
+      return renderSealedRow(item, i);
+    }).join('');
   }
 
   const etbBody = document.getElementById('sealed-etb-body');
   if (etbBody) {
-    etbBody.innerHTML = sortedEtb.map((item, i) => renderSealedRow(item, i)).join('');
+    etbBody.innerHTML = sortedEtb.map((item, i) => {
+      return renderSealedRow(item, i);
+    }).join('');
   }
 }
 
@@ -297,7 +287,8 @@ function renderSealedRow(item, index) {
       </td>
       <td><span class="price-tag neutral">${formatPrice(item.price)}</span></td>
       <td>
-        <a href="https://www.cardtrader.com/it/search?query=${encodeURIComponent(item.name)}" target="_blank" rel="noopener" class="sealed-link" title="Cerca su CardTrader">
+        <a href="${item.blueprintId ? `https://www.cardtrader.com/it/search?blueprint_id=${item.blueprintId}` : `https://www.cardtrader.com/it/search?query=${encodeURIComponent(item.name)}`}" 
+           target="_blank" rel="noopener" class="sealed-link" title="Vedi su CardTrader">
           🔗
         </a>
       </td>

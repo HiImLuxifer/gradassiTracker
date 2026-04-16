@@ -1,651 +1,747 @@
 {
-  "updatedAt": "2026-04-14T16:53:59.923Z",
+  "updatedAt": "2026-04-16T08:54:42.946Z",
   "cards": {
     "me03-095": {
       "name": "Espurr",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/095",
       "rarity": "Rara illustrazione",
-      "priceITNM": 1.68
+      "priceITNM": 1.68,
+      "blueprintId": 378878
     },
     "me03-096": {
       "name": "Probopass",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/096",
       "rarity": "Rara illustrazione",
-      "priceITNM": 0.62
+      "priceITNM": 0.62,
+      "blueprintId": 378883
     },
     "me03-097": {
       "name": "Drapion",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/097",
       "rarity": "Rara illustrazione",
-      "priceITNM": 1.05
+      "priceITNM": 1.05,
+      "blueprintId": 378897
     },
     "me03-098": {
       "name": "Doublade",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/098",
       "rarity": "Rara illustrazione",
-      "priceITNM": 2.1
+      "priceITNM": 2.1,
+      "blueprintId": 378902
     },
     "me03-099": {
       "name": "Raticate",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/099",
       "rarity": "Rara illustrazione",
-      "priceITNM": 2.63
+      "priceITNM": 2.63,
+      "blueprintId": 378906
     },
     "me03-100": {
       "name": "Decidueye-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/100",
       "rarity": "Ultrarara",
-      "priceITNM": 2.09
+      "priceITNM": 2.1,
+      "blueprintId": 378857
     },
     "me03-101": {
       "name": "Salazzle-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/101",
       "rarity": "Ultrarara",
-      "priceITNM": 2.1
+      "priceITNM": 1.84,
+      "blueprintId": 378861
     },
     "me03-102": {
       "name": "Mega Starmie-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/102",
       "rarity": "Ultrarara",
-      "priceITNM": 8.4
+      "priceITNM": 7.86,
+      "blueprintId": 378866
     },
     "me03-103": {
       "name": "Mega Clefable-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/103",
       "rarity": "Ultrarara",
-      "priceITNM": 3.68
+      "priceITNM": 3.57,
+      "blueprintId": 378876
     },
     "me03-104": {
       "name": "Mega Zygarde-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/104",
       "rarity": "Ultrarara",
-      "priceITNM": 6.83
+      "priceITNM": 6.83,
+      "blueprintId": 378892
     },
     "me03-105": {
       "name": "Yveltal-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/105",
       "rarity": "Ultrarara",
-      "priceITNM": 3.15
+      "priceITNM": 3.15,
+      "blueprintId": 378898
     },
     "me03-106": {
       "name": "Mega Skarmory-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/106",
       "rarity": "Ultrarara",
-      "priceITNM": 4.51
+      "priceITNM": 4.51,
+      "blueprintId": 378900
     },
     "me03-107": {
       "name": "Meowth-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/107",
       "rarity": "Ultrarara",
-      "priceITNM": 18.06
+      "priceITNM": 17.85,
+      "blueprintId": 378907
     },
     "me03-108": {
       "name": "Riciclaggio di Energia",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/108",
       "rarity": "Ultrarara",
-      "priceITNM": 2.89
+      "priceITNM": 3.15,
+      "blueprintId": 378953
     },
     "me03-109": {
       "name": "Bosco della Vitalità",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/109",
       "rarity": "Ultrarara",
-      "priceITNM": 5.15
+      "priceITNM": 5.15,
+      "blueprintId": 378954
     },
     "me03-110": {
       "name": "Viola",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/110",
       "rarity": "Ultrarara",
-      "priceITNM": 2.63
+      "priceITNM": 2.31,
+      "blueprintId": 378920
     },
     "me03-111": {
       "name": "Luminopoli",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/111",
       "rarity": "Ultrarara",
-      "priceITNM": 0.89
+      "priceITNM": 0.89,
+      "blueprintId": 378922
     },
     "me03-112": {
       "name": "Virgil",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/112",
       "rarity": "Ultrarara",
-      "priceITNM": 2.1
+      "priceITNM": 1.58,
+      "blueprintId": 378924
     },
     "me03-113": {
       "name": "Poké Pad",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/113",
       "rarity": "Ultrarara",
-      "priceITNM": 14.7
+      "priceITNM": 14.7,
+      "blueprintId": 378926
     },
     "me03-114": {
       "name": "Incoraggiamento di Rina",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/114",
       "rarity": "Ultrarara",
-      "priceITNM": 6.83
+      "priceITNM": 6.93,
+      "blueprintId": 378929
     },
     "me03-115": {
       "name": "Cenere magica",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/115",
       "rarity": "Ultrarara",
-      "priceITNM": 1.58
+      "priceITNM": 2.05,
+      "blueprintId": 378960
     },
     "me03-116": {
       "name": "Tarragon",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/116",
       "rarity": "Ultrarara",
-      "priceITNM": 2.63
+      "priceITNM": 2.63,
+      "blueprintId": 378930
     },
     "me03-117": {
       "name": "Distintivo Meraviglioso",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/117",
       "rarity": "Ultrarara",
-      "priceITNM": 3.04
+      "priceITNM": 2.84,
+      "blueprintId": 378962
     },
     "me03-118": {
       "name": "Mega Starmie-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/118",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 42
+      "priceITNM": 42,
+      "blueprintId": 378866
     },
     "me03-119": {
       "name": "Mega Clefable-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/119",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 39.9
+      "priceITNM": 36.75,
+      "blueprintId": 378876
     },
     "me03-120": {
       "name": "Mega Zygarde-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/120",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 41.99
+      "priceITNM": 44.1,
+      "blueprintId": 378892
     },
     "me03-121": {
       "name": "Meowth-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/121",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 72.98
+      "priceITNM": 75.6,
+      "blueprintId": 378907
     },
     "me03-122": {
       "name": "Viola",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/122",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 16.8
+      "priceITNM": 10.5,
+      "blueprintId": 378920
     },
     "me03-123": {
       "name": "Incoraggiamento di Rina",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/123",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 52.47
+      "priceITNM": 46.2,
+      "blueprintId": 378929
     },
     "me03-124": {
       "name": "Mega Zygarde-ex",
       "setName": "Equilibrio Perfetto",
       "image": "https://assets.tcgdex.net/it/me/me03/124",
       "rarity": "Mega Iper Raro",
-      "priceITNM": 104.95
+      "priceITNM": 113.4,
+      "blueprintId": 378892
     },
     "me02.5-266": {
       "name": "Mega Eelektross-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/266",
       "rarity": "Ultrarara",
-      "priceITNM": 3.04
+      "priceITNM": 3.15,
+      "blueprintId": 370699
     },
     "me02.5-267": {
       "name": "Mega Diancie-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/267",
       "rarity": "Ultrarara",
-      "priceITNM": 4.99
+      "priceITNM": 4.99,
+      "blueprintId": 370905
     },
     "me02.5-268": {
       "name": "Mega Hawlucha-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/268",
       "rarity": "Ultrarara",
-      "priceITNM": 3.04
+      "priceITNM": 3.52,
+      "blueprintId": 370754
     },
     "me02.5-269": {
       "name": "Mega Gengar-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/269",
       "rarity": "Ultrarara",
-      "priceITNM": 26.13
+      "priceITNM": 26.2,
+      "blueprintId": 359488
     },
     "me02.5-270": {
       "name": "Mega Scrafty-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/270",
       "rarity": "Ultrarara",
-      "priceITNM": 2.05
+      "priceITNM": 1.78,
+      "blueprintId": 370773
     },
     "me02.5-271": {
       "name": "Mega Dragonite-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/271",
       "rarity": "Ultrarara",
-      "priceITNM": 15.75
+      "priceITNM": 15.75,
+      "blueprintId": 370790
     },
     "me02.5-272": {
       "name": "Mega Meganium-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/272",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 47.2
+      "priceITNM": 47.2,
+      "blueprintId": 363646
     },
     "me02.5-273": {
       "name": "Mega Emboar-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/273",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 29.4
+      "priceITNM": 29.4,
+      "blueprintId": 363647
     },
     "me02.5-274": {
       "name": "Mega Feraligatr-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/274",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 61.95
+      "priceITNM": 61.95,
+      "blueprintId": 363648
     },
     "me02.5-275": {
       "name": "Mega Froslass-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/275",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 35.7
+      "priceITNM": 35.7,
+      "blueprintId": 370685
     },
     "me02.5-276": {
       "name": "Pikachu-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/276",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 414.75
+      "priceITNM": 414.75,
+      "blueprintId": 370693
     },
     "me02.5-277": {
       "name": "Pikachu-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/277",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 162.69
+      "priceITNM": 162.68,
+      "blueprintId": 370693
     },
     "me02.5-278": {
       "name": "Mega Eelektross-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/278",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 16.8
+      "priceITNM": 16.8,
+      "blueprintId": 370699
     },
     "me02.5-279": {
       "name": "Bellibolt-ex di Kissara",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/279",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 18.9
+      "priceITNM": 18.9,
+      "blueprintId": 370708
     },
     "me02.5-280": {
       "name": "Clefairy-ex di Lylia",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/280",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 68.25
+      "priceITNM": 68.25,
+      "blueprintId": 370712
     },
     "me02.5-281": {
       "name": "Mewtwo-ex del Team Rocket",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/281",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 157.5
+      "priceITNM": 178.5,
+      "blueprintId": 370717
     },
     "me02.5-282": {
       "name": "Mega Diancie-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/282",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 22.05
+      "priceITNM": 25.2,
+      "blueprintId": 370905
     },
     "me02.5-283": {
       "name": "Mega Hawlucha-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/283",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 25.2
+      "priceITNM": 25.2,
+      "blueprintId": 370754
     },
     "me02.5-284": {
       "name": "Mega Gengar-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/284",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 420
+      "priceITNM": 441,
+      "blueprintId": 359488
     },
     "me02.5-285": {
       "name": "Mega Scrafty-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/285",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 30.34
+      "priceITNM": 31.39,
+      "blueprintId": 370773
     },
     "me02.5-286": {
       "name": "Zoroark-ex di N",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/286",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 78.65
+      "priceITNM": 73.5,
+      "blueprintId": 370775
     },
     "me02.5-287": {
       "name": "Grimmsnarl-ex di Mary",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/287",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 29.4
+      "priceITNM": 29.4,
+      "blueprintId": 370924
     },
     "me02.5-288": {
       "name": "Fezandipiti-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/288",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 40.95
+      "priceITNM": 40.95,
+      "blueprintId": 370780
     },
     "me02.5-289": {
       "name": "Metagross-ex di Rocco",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/289",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 39.89
+      "priceITNM": 39.89,
+      "blueprintId": 370926
     },
     "me02.5-290": {
       "name": "Mega Dragonite-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/290",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 178.5
+      "priceITNM": 199.5,
+      "blueprintId": 370790
     },
     "me02.5-291": {
       "name": "Canary",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/291",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 18.9
+      "priceITNM": 18.79,
+      "blueprintId": 370823
     },
     "me02.5-292": {
       "name": "Spirito Combattivo di Iris",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/292",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 21
+      "priceITNM": 21,
+      "blueprintId": 370828
     },
     "me02.5-293": {
       "name": "Surfista",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/293",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 12.57
+      "priceITNM": 10.5,
+      "blueprintId": 370838
     },
     "me02.5-294": {
       "name": "Mega Charizard Y-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/294",
       "rarity": "Mega Iper Raro",
-      "priceITNM": 267.63
+      "priceITNM": 267.63,
+      "blueprintId": 359489
     },
     "me02.5-295": {
       "name": "Mega Dragonite-ex",
       "setName": "Ascesa Eroica",
       "image": "https://assets.tcgdex.net/it/me/me02.5/295",
       "rarity": "Mega Iper Raro",
-      "priceITNM": 157.5
+      "priceITNM": 156.45,
+      "blueprintId": 370790
     },
     "me02-101": {
       "name": "Flygon",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/101",
       "rarity": "Rara illustrazione",
-      "priceITNM": 1.47
+      "priceITNM": 1.31,
+      "blueprintId": 356836
     },
     "me02-102": {
       "name": "Wooper di Paldea",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/102",
       "rarity": "Rara illustrazione",
-      "priceITNM": 0.32
+      "priceITNM": 1,
+      "blueprintId": 356888
     },
     "me02-103": {
       "name": "Toxtricity",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/103",
       "rarity": "Rara illustrazione",
-      "priceITNM": 0.51
+      "priceITNM": 0.51,
+      "blueprintId": 356853
     },
     "me02-104": {
       "name": "Togedemaru",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/104",
       "rarity": "Rara illustrazione",
-      "priceITNM": 0.32
+      "priceITNM": 0.42,
+      "blueprintId": 356859
     },
     "me02-105": {
       "name": "Wigglytuff",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/105",
       "rarity": "Rara illustrazione",
-      "priceITNM": 1.52
+      "priceITNM": 1.47,
+      "blueprintId": 356863
     },
     "me02-106": {
       "name": "Meowth",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/106",
       "rarity": "Rara illustrazione",
-      "priceITNM": 8.93
+      "priceITNM": 8.93,
+      "blueprintId": 356892
     },
     "me02-107": {
       "name": "Ambipom",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/107",
       "rarity": "Rara illustrazione",
-      "priceITNM": 0.84
+      "priceITNM": 0.83,
+      "blueprintId": 356865
     },
     "me02-108": {
       "name": "Mega Heracross-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/108",
       "rarity": "Ultrarara",
-      "priceITNM": 1.78
+      "priceITNM": 1.89,
+      "blueprintId": 356788
     },
     "me02-109": {
       "name": "Mega Charizard X-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/109",
       "rarity": "Ultrarara",
-      "priceITNM": 16.7
+      "priceITNM": 17.75,
+      "blueprintId": 353122
     },
     "me02-110": {
       "name": "Oricorio-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/110",
       "rarity": "Ultrarara",
-      "priceITNM": 1.05
+      "priceITNM": 1.05,
+      "blueprintId": 356801
     },
     "me02-111": {
       "name": "Rotom-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/111",
       "rarity": "Ultrarara",
-      "priceITNM": 0.53
+      "priceITNM": 0.53,
+      "blueprintId": 356812
     },
     "me02-112": {
       "name": "Mismagius-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/112",
       "rarity": "Ultrarara",
-      "priceITNM": 0.98
+      "priceITNM": 0.98,
+      "blueprintId": 356819
     },
     "me02-113": {
       "name": "Mega Sharpedo-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/113",
       "rarity": "Ultrarara",
-      "priceITNM": 1.5
+      "priceITNM": 1.04,
+      "blueprintId": 356845
     },
     "me02-114": {
       "name": "Empoleon-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/114",
       "rarity": "Ultrarara",
-      "priceITNM": 1.04
+      "priceITNM": 1.04,
+      "blueprintId": 356856
     },
     "me02-115": {
       "name": "Mega Lopunny-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/115",
       "rarity": "Ultrarara",
-      "priceITNM": 1.52
+      "priceITNM": 1.47,
+      "blueprintId": 356870
     },
     "me02-116": {
       "name": "Gabbia di Lotta",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/116",
       "rarity": "Ultrarara",
-      "priceITNM": 0.84
+      "priceITNM": 1,
+      "blueprintId": 356871
     },
     "me02-117": {
       "name": "Fiamma Ossidrica",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/117",
       "rarity": "Ultrarara",
-      "priceITNM": 0.11
+      "priceITNM": 0.05,
+      "blueprintId": 356872
     },
     "me02-118": {
       "name": "Lucinda",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/118",
       "rarity": "Ultrarara",
-      "priceITNM": 3.15
+      "priceITNM": 3.68,
+      "blueprintId": 356873
     },
     "me02-119": {
       "name": "Mangiafuoco",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/119",
       "rarity": "Ultrarara",
-      "priceITNM": 0.53
+      "priceITNM": 0.53,
+      "blueprintId": 356875
     },
     "me02-120": {
       "name": "Mossa di Mirton",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/120",
       "rarity": "Ultrarara",
-      "priceITNM": 0.73
+      "priceITNM": 0.73,
+      "blueprintId": 356876
     },
     "me02-121": {
       "name": "Elmo Punk",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/121",
       "rarity": "Ultrarara",
-      "priceITNM": 0.32
+      "priceITNM": 0.26,
+      "blueprintId": 356878
     },
     "me02-122": {
       "name": "Amuleto Magico",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/122",
       "rarity": "Ultrarara",
-      "priceITNM": 0.21
+      "priceITNM": 0.21,
+      "blueprintId": 356879
     },
     "me02-123": {
       "name": "Scambio",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/123",
       "rarity": "Ultrarara",
-      "priceITNM": 0.53
+      "priceITNM": 0.53,
+      "blueprintId": 356909
     },
     "me02-124": {
       "name": "Energia Deflagrazione",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/124",
       "rarity": "Ultrarara",
-      "priceITNM": 0.73
+      "priceITNM": 0.73,
+      "blueprintId": 356910
     },
     "me02-125": {
       "name": "Mega Charizard X-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/125",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 367.5
+      "priceITNM": 362.25,
+      "blueprintId": 353122
     },
     "me02-126": {
       "name": "Rotom-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/126",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 12.47
+      "priceITNM": 12.59,
+      "blueprintId": 356812
     },
     "me02-127": {
       "name": "Mega Sharpedo-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/127",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 15.75
+      "priceITNM": 15.75,
+      "blueprintId": 356845
     },
     "me02-128": {
       "name": "Mega Lopunny-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/128",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 14.18
+      "priceITNM": 14.7,
+      "blueprintId": 356870
     },
     "me02-129": {
       "name": "Lucinda",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/129",
       "rarity": "Rara illustrazione speciale",
-      "priceITNM": 12.6
+      "priceITNM": 20.48,
+      "blueprintId": 356873
     },
     "me02-130": {
       "name": "Mega Charizard X-ex",
       "setName": "Flamme Spettrali",
       "image": "https://assets.tcgdex.net/it/me/me02/130",
       "rarity": "Mega Iper Raro",
-      "priceITNM": 209.96
+      "priceITNM": 209.9,
+      "blueprintId": 353122
     }
   },
   "sealed": {
     "me03": {
       "bbPrice": 139.64,
       "etbPrice": 45.64,
+      "bbBlueprintId": 367209,
+      "etbBlueprintId": 367212,
       "name": "Equilibrio Perfetto"
     },
     "me02.5": {
       "bbPrice": 43,
       "etbPrice": 64.64,
+      "bbBlueprintId": 359473,
+      "etbBlueprintId": 359471,
       "name": "Ascesa Eroica"
     },
     "me02": {
       "bbPrice": 196.64,
       "etbPrice": 58.64,
+      "bbBlueprintId": 349984,
+      "etbBlueprintId": 349988,
       "name": "Flamme Spettrali"
     }
   }
