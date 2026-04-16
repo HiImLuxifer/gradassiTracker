@@ -15,7 +15,7 @@ function renderNavbar() {
     <div class="nav-inner">
       <div class="nav-logo" id="nav-home-logo">
         <span class="logo-icon">⚡</span>
-        <span>Gradassi<span class="logo-accent">TCG</span></span>
+        <span>Gradassi<span class="logo-accent">Tracker</span></span>
       </div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
       <ul class="nav-links" id="nav-links">
@@ -52,9 +52,9 @@ function renderFooter() {
   const footer = document.getElementById('footer');
   footer.innerHTML = `
     <div class="footer-inner">
-      <div class="footer-brand">⚡ GradassiTCG</div>
+      <div class="footer-brand">⚡ GradassiTracker</div>
       <div class="footer-links">
-        <a href="https://linktr.ee/gradassiTCG" target="_blank" rel="noopener">Linktree</a>
+        <a href="https://linktr.ee/gradassitracker" target="_blank" rel="noopener">Linktree</a>
         <a href="#/about">Info</a>
       </div>
       <div class="footer-note">

@@ -9,10 +9,10 @@ export async function renderAbout(container) {
       <div class="about-content">
         <div class="card-info-section" style="margin-bottom:2rem;">
           <h3 style="font-size:var(--font-size-lg);text-transform:none;letter-spacing:0;">
-            ⚡ GradassiTCG — Tracker Pokémon TCG Italiano
+            ⚡ GradassiTracker — Tracker Pokémon TCG Italiano
           </h3>
           <p style="margin-top:1rem;">
-            Benvenuto su <strong>GradassiTCG</strong>, il primo strumento pensato per i collezionisti 
+            Benvenuto su <strong>GradassiTracker</strong>, il primo strumento pensato per i collezionisti 
             di carte Pokémon TCG <strong>in lingua italiana</strong>.
           </p>
           <p>
@@ -45,20 +45,20 @@ export async function renderAbout(container) {
 
         <h2>🔗 Seguici</h2>
         <div class="about-links">
-          <a href="https://linktr.ee/gradassiTCG" target="_blank" rel="noopener" class="about-link-card">
+          <a href="https://linktr.ee/gradassitracker" target="_blank" rel="noopener" class="about-link-card">
             🌳 Linktree
           </a>
-          <a href="https://www.instagram.com/gradassiTCG" target="_blank" rel="noopener" class="about-link-card">
+          <a href="https://www.instagram.com/gradassitracker" target="_blank" rel="noopener" class="about-link-card">
             📸 Instagram
           </a>
-          <a href="https://www.tiktok.com/@gradassiTCG" target="_blank" rel="noopener" class="about-link-card">
+          <a href="https://www.tiktok.com/@gradassitracker" target="_blank" rel="noopener" class="about-link-card">
             🎵 TikTok
           </a>
         </div>
 
         <div style="margin-top:3rem;padding:1.5rem;border-radius:var(--radius-md);background:rgba(74,158,172,0.1);border:1px solid var(--border-color);">
           <p style="font-size:var(--font-size-sm);color:var(--text-secondary);margin:0;">
-            <strong>Disclaimer:</strong> GradassiTCG non è affiliato, sponsorizzato o approvato da 
+            <strong>Disclaimer:</strong> GradassiTracker non è affiliato, sponsorizzato o approvato da 
             The Pokémon Company International, Nintendo o Creatures Inc. I prezzi mostrati sono 
             indicativi e basati su dati aggregati da fonti terze.
           </p>

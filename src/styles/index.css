@@ -1,6 +1,6 @@
 /* ===================================================
-   GradassiTCG — Design System
-   Colors from linktr.ee/gradassiTCG
+   GradassiTracker — Design System
+   Colors from linktr.ee/gradassitracker
    =================================================== */
 
 /* --- Reset & Base --- */
@@ -11,7 +11,7 @@
 }
 
 :root {
-  /* Brand colors from GradassiTCG Linktree */
+  /* Brand colors from GradassiTracker Linktree */
   --color-teal: #4A9EAC;
   --color-teal-light: #6CB8C4;
   --color-teal-dark: #357A86;
