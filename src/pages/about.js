@@ -45,13 +45,13 @@ export async function renderAbout(container) {
 
         <h2>🔗 Seguici</h2>
         <div class="about-links">
-          <a href="https://linktr.ee/gradassitracker" target="_blank" rel="noopener" class="about-link-card">
+          <a href="https://linktr.ee/gradassitcg" target="_blank" rel="noopener" class="about-link-card">
             🌳 Linktree
           </a>
-          <a href="https://www.instagram.com/gradassitracker" target="_blank" rel="noopener" class="about-link-card">
+          <a href="https://www.instagram.com/gradassitcg" target="_blank" rel="noopener" class="about-link-card">
             📸 Instagram
           </a>
-          <a href="https://www.tiktok.com/@gradassitracker" target="_blank" rel="noopener" class="about-link-card">
+          <a href="https://www.tiktok.com/@gradassitcg" target="_blank" rel="noopener" class="about-link-card">
             🎵 TikTok
           </a>
         </div>

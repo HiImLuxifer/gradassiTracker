@@ -7,6 +7,7 @@ import { renderSearch } from './pages/search.js';
 import { renderAbout } from './pages/about.js';
 import { renderCardLeaderboard } from './pages/card-leaderboard.js';
 import { renderSealedLeaderboard } from './pages/sealed-leaderboard.js';
+import { renderSetLeaderboard } from './pages/set-leaderboard.js';
 
 // --- Navbar ---
 function renderNavbar() {
@@ -22,6 +23,7 @@ function renderNavbar() {
         <li><a href="#/" data-nav="home">Home</a></li>
         <li><a href="#/card-leaderboard" data-nav="card-lb">Carte</a></li>
         <li><a href="#/sealed-leaderboard" data-nav="sealed-lb">Sealed</a></li>
+        <li><a href="#/set-leaderboard" data-nav="set-lb">Classifica Set</a></li>
         <li><a href="#/sets" data-nav="sets">Set</a></li>
         <li><a href="#/search" data-nav="search">Ricerca</a></li>
         <li><a href="#/about" data-nav="about">Info</a></li>
@@ -80,6 +82,8 @@ function updateActiveNav(route) {
       a.classList.add('active');
     } else if (route.startsWith('/sealed-leaderboard') && href === '/sealed-leaderboard') {
       a.classList.add('active');
+    } else if (route.startsWith('/set-leaderboard') && href === '/set-leaderboard') {
+      a.classList.add('active');
     } else if (route.startsWith('/sets') && href === '/sets') {
       a.classList.add('active');
     } else if (route.startsWith('/search') && href === '/search') {
@@ -111,6 +115,8 @@ async function router() {
       await renderCardLeaderboard(main);
     } else if (route === '/sealed-leaderboard') {
       await renderSealedLeaderboard(main);
+    } else if (route === '/set-leaderboard') {
+      await renderSetLeaderboard(main);
     } else if (route === '/sets') {
       await renderSets(main);
     } else if (route.startsWith('/set/')) {

@@ -36,7 +36,7 @@
 
 Per avviare il server di sviluppo:
 ```bash
-npm run dev
+   
 ```
 
 Per generare la build di produzione:

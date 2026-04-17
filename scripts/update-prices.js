@@ -19,7 +19,7 @@ const CT_HEADERS = {
   'Accept': 'application/json'
 };
 
-const SETS_TO_SCAN = 3; 
+const SETS_TO_SCAN = 15; 
 
 // Helper per i rate limit e le fetch
 async function sleep(ms) {
@@ -100,6 +100,8 @@ async function runUpdate() {
       const sealedBps = blueprints.filter(b => [67, 68, 60, 59].includes(b.category_id));
       let bbPrice = null;
       let etbPrice = null;
+      let bbSlug = null;
+      let etbSlug = null;
       let bbBlueprintId = null;
       let etbBlueprintId = null;
       for (const bp of sealedBps) {
@@ -124,37 +126,70 @@ async function runUpdate() {
                   // If we find a bundle but already found a real box, do not overwrite. If box not found, use bundle.
                   if (isBB && !bbPrice) {
                     bbPrice = minP;
+                    bbSlug = bp.slug;
                     bbBlueprintId = bp.id;
                   }
                   if (isBundle && !bbPrice) {
                     bbPrice = minP;
+                    bbSlug = bp.slug;
                     bbBlueprintId = bp.id;
                   }
                   if (isETB && !etbPrice) {
                     etbPrice = minP;
+                    etbSlug = bp.slug;
                     etbBlueprintId = bp.id;
                   }
                }
             } catch(e) {}
          }
       }
-      finalData.sealed[set.id] = { bbPrice, etbPrice, bbBlueprintId, etbBlueprintId, name: setIt.name };
+      finalData.sealed[set.id] = { 
+        bbPrice, 
+        etbPrice, 
+        bbSlug, 
+        etbSlug, 
+        bbBlueprintId, 
+        etbBlueprintId, 
+        name: setIt.name 
+      };
       console.log(`  📦 Dati Sealed -> BB/Bundle: ${bbPrice || 'N/D'}€, ETB: ${etbPrice || 'N/D'}€`);
       // ---- FINE ESTRAZIONE SEALED ----
 
-      // Limitiamo ai chase cards/secret per non fare 200 iterazioni a espansione
-      const cardsToScan = setEn.cards.slice(-30);
+      // Scansioniamo TUTTE le carte del set per avere copertura totale (comuni incluse)
+      const cardsToScan = setEn.cards;
 
       for (const cardEn of cardsToScan) {
         process.stdout.write(`  ⏳ Analizzo [${cardEn.id}] ${cardEn.name}... `);
 
-        // Map Blueprint: CardTrader chiama spesso le carte col nome inglese
-        // E rimuoviamo roba strana come i trattini
+        // Map Blueprint con precisione usando collector_number
         const cleanName = cardEn.name.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const cardNum = cardEn.localId; // Es: 095, 231
+        
+        // PRIORITÀ 1: Match esatto per collector_number (più affidabile)
         const matchingBp = blueprints.find(bp => {
+            const bpCollectorNum = bp.fixed_properties?.collector_number;
+            if (bpCollectorNum && cardNum && bpCollectorNum === cardNum) {
+              // Numero esatto trovato — verifica anche nome per evitare falsi positivi
+              const bpClean = bp.name.toLowerCase().replace(/[^a-z0-9]/g, '');
+              const nameMatch = bpClean.includes(cleanName) || cleanName.includes(bpClean);
+              return nameMatch;
+            }
+            return false;
+        })
+        // PRIORITÀ 2: Match per solo collector_number (se nome non coincide, es. nomi tradotti diversamente)
+        || blueprints.find(bp => {
+            const bpCollectorNum = bp.fixed_properties?.collector_number;
+            return bpCollectorNum && cardNum && bpCollectorNum === cardNum;
+        })
+        // PRIORITÀ 3: Fallback per nome + numero nel version field
+        || blueprints.find(bp => {
             const bpClean = bp.name.toLowerCase().replace(/[^a-z0-9]/g, '');
-            return bpClean === cleanName || bpClean.includes(cleanName) || cleanName.includes(bpClean);
-        });
+            const nameMatch = bpClean.includes(cleanName) || cleanName.includes(bpClean);
+            const versionMatch = cardNum && bp.version && bp.version.includes(cardNum);
+            return nameMatch && versionMatch;
+        })
+        // PRIORITÀ 4: Fallback disperato solo nome (ultima risorsa)
+        || blueprints.find(bp => bp.name.toLowerCase().replace(/[^a-z0-9]/g, '').includes(cleanName));
 
         if (!matchingBp) {
            console.log(`Nessun Mismatch.`);
@@ -201,7 +236,8 @@ async function runUpdate() {
               image: fullCardIt.image,
               rarity: fullCardIt.rarity || '—',
               priceITNM: minPrice,
-              blueprintId: matchingBp.id
+              blueprintId: matchingBp.id,
+              slug: matchingBp.slug
             };
             console.log(`✅ Minimo ITA/NM: €${minPrice}`);
           } else {
@@ -215,7 +251,8 @@ async function runUpdate() {
                   image: fullCardIt.image,
                   rarity: fullCardIt.rarity || '—',
                   priceITNM: parseFloat((fbPrice * 1.05).toFixed(2)), // Applicato un mini premium su ITA
-                  blueprintId: matchingBp.id
+                  blueprintId: matchingBp.id,
+                  slug: matchingBp.slug
                 };
             }
           }

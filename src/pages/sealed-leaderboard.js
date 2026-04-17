@@ -287,7 +287,12 @@ function renderSealedRow(item, index) {
       </td>
       <td><span class="price-tag neutral">${formatPrice(item.price)}</span></td>
       <td>
-        <a href="${item.blueprintId ? `https://www.cardtrader.com/it/search?blueprint_id=${item.blueprintId}` : `https://www.cardtrader.com/it/search?query=${encodeURIComponent(item.name)}`}" 
+        <a href="${
+            item.bbSlug ? `https://www.cardtrader.com/it/cards/${item.bbSlug}` :
+            item.etbSlug ? `https://www.cardtrader.com/it/cards/${item.etbSlug}` :
+            item.blueprintId ? `https://www.cardtrader.com/it/cards/${item.blueprintId}` : 
+            `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`Pokémon ${item.name} Sealed`)}`
+          }" 
            target="_blank" rel="noopener" class="sealed-link" title="Vedi su CardTrader">
           🔗
         </a>
