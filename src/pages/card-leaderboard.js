@@ -22,7 +22,7 @@ export async function renderCardLeaderboard(container) {
         <div class="leaderboard-header">
           <div class="leaderboard-title">💎 Top Carte per Valore</div>
           <div class="leaderboard-desc">
-            Carte con il prezzo medio più alto dai set recenti — clicca per i dettagli
+            Carte ordinate per prezzo minimo CardTrader dai set recenti — clicca per i dettagli
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export async function renderCardLeaderboard(container) {
               <th>Carta</th>
               <th>Set</th>
               <th>Rarità</th>
-              <th>Prezzo Medio</th>
+              <th>Prezzo Min</th>
               <th>Trend</th>
             </tr>
           </thead>
@@ -110,7 +110,7 @@ export async function renderCardLeaderboard(container) {
             results.forEach(r => {
               if (r.status === 'fulfilled') {
                 const card = r.value;
-                const price = card.pricing?.cardmarket?.avg;
+                const price = card.pricing?.cardmarket?.low;
                 if (price && price > 0) {
                   allCardData.push({
                     id: card.id,

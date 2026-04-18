@@ -55,9 +55,9 @@ export async function renderCardDetail(container, cardId) {
           ${pricing ? `
             <div class="card-info-section">
               <h3>💰 Prezzo CardTrader</h3>
-              <div class="card-price-big">${formatPrice(pricing.avg)}</div>
+              <div class="card-price-big">${formatPrice(cmLow)}</div>
               <p style="font-size:var(--font-size-xs);color:var(--text-secondary);margin-top:0.25rem;">
-                Prezzo medio · Aggiornato ${pricing.updated ? new Date(pricing.updated).toLocaleDateString('it-IT') : 'N/D'}
+                ${priceSourceLabel} · Aggiornato ${pricing.updated ? new Date(pricing.updated).toLocaleDateString('it-IT') : 'N/D'}
               </p>
             </div>
 

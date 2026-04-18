@@ -213,12 +213,11 @@ async function runUpdate() {
              }
           }
 
-          // Filtriamo l'oggetto enorme per Italiano (it) e Condizione >= Near Mint (condition.id = 1)
+          // Filtriamo per Italiano (it) e Condizione >= Near Mint
           const validProducts = products.filter(p => {
-             // p.language potrebbe non esistere se non applicabile, controlliamo
-             const isIt = p.language === 'it' || p.properties_hash?.language === 'it';
-             // p.condition.name = 'Near Mint' o 'Mint'
-             const isNm = p.condition && (p.condition.name === 'Near Mint' || p.condition.name === 'Mint');
+             const props = p.properties_hash || {};
+             const isIt = props.pokemon_language === 'it';
+             const isNm = props.condition === 'Near Mint' || props.condition === 'Mint';
              return isIt && isNm;
           });
 

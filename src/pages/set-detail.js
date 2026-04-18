@@ -1,5 +1,5 @@
 // Set Detail — shows all cards in a set with sort & filter
-import { getSet, cardThumbUrl, setLogoUrl, formatPrice, getCard } from '../api.js';
+import { getSet, cardThumbUrl, setLogoUrl, formatPrice, getCard, getLocalPrices } from '../api.js';
 
 // Module-level state for sorting/filtering
 let priceMap = new Map();   // cardId → price (number)
@@ -173,6 +173,9 @@ async function loadPricesAsync(cards, container) {
   const loadingEl = document.getElementById('card-prices-loading');
   let loaded = 0;
 
+  // Load local prices cache first (CardTrader minimum ITA)
+  const localData = await getLocalPrices();
+
   // Load in batches of 5 to avoid hammering the API
   for (let i = 0; i < cards.length; i += 5) {
     const batch = cards.slice(i, i + 5);
@@ -184,7 +187,9 @@ async function loadPricesAsync(cards, container) {
       if (result.status === 'fulfilled') {
         const card = result.value;
         const priceEl = document.getElementById(`price-${card.id.replace(/[^a-zA-Z0-9]/g, '_')}`);
-        const price = card.pricing?.cardmarket?.avg;
+        // Priorità: minimo CardTrader ITA → fallback cardmarket low
+        const localPrice = localData?.cards?.[card.id]?.priceITNM;
+        const price = localPrice || card.pricing?.cardmarket?.low;
         if (price) {
           priceMap.set(card.id, price);
           if (priceEl) priceEl.textContent = formatPrice(price);
