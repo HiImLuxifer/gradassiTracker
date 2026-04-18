@@ -16,12 +16,6 @@ const BOOSTER_BOXES = [
     image: 'https://assets.tcgdex.net/it/sv/sv07/logo.webp',
   },
   {
-    name: 'Destino di Paldea',
-    setId: 'sv04.5',
-    price: 45.00, // Booster Bundle since no Booster Box exists
-    image: 'https://assets.tcgdex.net/it/sv/sv04.5/logo.webp',
-  },
-  {
     name: 'Forze Temporali',
     setId: 'sv05',
     price: 105.00,
@@ -40,16 +34,25 @@ const BOOSTER_BOXES = [
     image: 'https://assets.tcgdex.net/it/sv/sv02/logo.webp',
   },
   {
-    name: '151',
-    setId: 'sv03.5',
-    price: 65.00, // Booster Bundle since no Booster Box exists
-    image: 'https://assets.tcgdex.net/it/sv/sv03.5/logo.webp',
-  },
-  {
     name: 'Scarlatto e Violetto',
     setId: 'sv01',
     price: 95.00,
     image: 'https://assets.tcgdex.net/it/sv/sv01/logo.webp',
+  },
+];
+
+const BOOSTER_BUNDLES = [
+  {
+    name: 'Destino di Paldea',
+    setId: 'sv04.5',
+    price: 45.00,
+    image: 'https://assets.tcgdex.net/it/sv/sv04.5/logo.webp',
+  },
+  {
+    name: '151',
+    setId: 'sv03.5',
+    price: 65.00,
+    image: 'https://assets.tcgdex.net/it/sv/sv03.5/logo.webp',
   },
 ];
 
@@ -148,6 +151,27 @@ export async function renderSealedLeaderboard(container) {
         <div class="sealed-column">
           <div class="leaderboard">
             <div class="leaderboard-header">
+              <div class="leaderboard-title">🛍️ Booster Bundle</div>
+              <div class="leaderboard-desc">Box da 6 buste — prezzi indicativi in EUR</div>
+            </div>
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Set</th>
+                  <th>Prezzo</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="sealed-bundle-body">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sealed-column">
+          <div class="leaderboard">
+            <div class="leaderboard-header">
               <div class="leaderboard-title">🎁 Elite Trainer Box</div>
               <div class="leaderboard-desc">ETB con buste, accessori e promo — prezzi indicativi in EUR</div>
             </div>
@@ -178,28 +202,33 @@ export async function renderSealedLeaderboard(container) {
     if (localData && localData.sealed) {
       
       // Inject dynamically found sets that are not in the hardcoded list
-      const existingSetIds = new Set(BOOSTER_BOXES.map(b => b.setId));
+      const existingBoxIds = new Set(BOOSTER_BOXES.map(b => b.setId));
+      const existingBundleIds = new Set(BOOSTER_BUNDLES.map(b => b.setId));
+      const existingEtbIds = new Set(ETB_BOXES.map(b => b.setId));
+      
       Object.keys(localData.sealed).forEach(setId => {
-        if (!existingSetIds.has(setId)) {
-           // We don't have the exact Italian name or logo handy nicely mapped,
-           // but we can make a strong guess from the cards data
-           let setName = localData.sealed[setId].name || ('Set ' + setId);
-           const seriesFolder = setId.startsWith('me') ? 'me' : setId.startsWith('swsh') ? 'swsh' : 'sv';
-           
-           // Aggiungiamo ai booster boxes
-           BOOSTER_BOXES.push({
-             name: setName,
-             setId: setId,
-             price: 0,
-             image: `https://assets.tcgdex.net/it/${seriesFolder}/${setId}/logo.webp`, 
-           });
-           ETB_BOXES.push({
-             name: setName,
-             setId: setId,
-             price: 0,
-             image: `https://assets.tcgdex.net/it/${seriesFolder}/${setId}/logo.webp`, 
-           });
-        }
+         const sl = localData.sealed[setId];
+         const seriesFolder = setId.startsWith('me') ? 'me' : setId.startsWith('swsh') ? 'swsh' : 'sv';
+         let setName = sl.name || ('Set ' + setId);
+
+         if (!existingBoxIds.has(setId)) {
+            BOOSTER_BOXES.push({
+              name: setName, setId, price: 0,
+              image: `https://assets.tcgdex.net/it/${seriesFolder}/${setId}/logo.webp`, 
+            });
+         }
+         if (!existingBundleIds.has(setId)) {
+            BOOSTER_BUNDLES.push({
+              name: setName, setId, price: 0,
+              image: `https://assets.tcgdex.net/it/${seriesFolder}/${setId}/logo.webp`, 
+            });
+         }
+         if (!existingEtbIds.has(setId)) {
+            ETB_BOXES.push({
+              name: setName, setId, price: 0,
+              image: `https://assets.tcgdex.net/it/${seriesFolder}/${setId}/logo.webp`, 
+            });
+         }
       });
 
       BOOSTER_BOXES.forEach(box => {
@@ -207,13 +236,23 @@ export async function renderSealedLeaderboard(container) {
          if (sl) {
             if (sl.bbPrice) box.price = sl.bbPrice;
             if (sl.bbBlueprintId) box.blueprintId = sl.bbBlueprintId;
+            if (sl.bbSlug) box.bbSlug = sl.bbSlug;
+         }
+      });
+      BOOSTER_BUNDLES.forEach(bundle => {
+         const sl = localData.sealed[bundle.setId];
+         if (sl) {
+            if (sl.bundlePrice) bundle.price = sl.bundlePrice;
+            if (sl.bundleBlueprintId) bundle.bundleBlueprintId = sl.bundleBlueprintId;
+            if (sl.bundleSlug) bundle.bundleSlug = sl.bundleSlug;
          }
       });
       ETB_BOXES.forEach(box => {
          const sl = localData.sealed[box.setId];
          if (sl) {
             if (sl.etbPrice) box.price = sl.etbPrice;
-            if (sl.etbBlueprintId) box.blueprintId = sl.etbBlueprintId;
+            if (sl.etbBlueprintId) box.etbBlueprintId = sl.etbBlueprintId;
+            if (sl.etbSlug) box.etbSlug = sl.etbSlug;
          }
       });
       const subtitle = container.querySelector('.page-subtitle');
@@ -252,26 +291,46 @@ function updateSealedTables() {
   };
 
   const sortedBooster = [...BOOSTER_BOXES].sort(sortFn);
+  const sortedBundle = [...BOOSTER_BUNDLES].sort(sortFn);
   const sortedEtb = [...ETB_BOXES].sort(sortFn);
 
   const boosterBody = document.getElementById('sealed-booster-body');
   if (boosterBody) {
     boosterBody.innerHTML = sortedBooster.map((item, i) => {
-      // Pass blueprintId if found in dynamic update
-      return renderSealedRow(item, i);
+      return renderSealedRow(item, i, 'booster');
+    }).join('');
+  }
+
+  const bundleBody = document.getElementById('sealed-bundle-body');
+  if (bundleBody) {
+    bundleBody.innerHTML = sortedBundle.map((item, i) => {
+      return renderSealedRow(item, i, 'bundle');
     }).join('');
   }
 
   const etbBody = document.getElementById('sealed-etb-body');
   if (etbBody) {
     etbBody.innerHTML = sortedEtb.map((item, i) => {
-      return renderSealedRow(item, i);
+      return renderSealedRow(item, i, 'etb');
     }).join('');
   }
 }
 
-function renderSealedRow(item, index) {
+function renderSealedRow(item, index, type) {
   const rankClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
+  
+  // Determina lo slug o l'ID corretto
+  const slug = type === 'booster' ? item.bbSlug : 
+               type === 'bundle' ? item.bundleSlug : item.etbSlug;
+  const blueprintId = type === 'booster' ? item.bbBlueprintId : 
+                      type === 'bundle' ? item.bundleBlueprintId : item.etbBlueprintId;
+  const label = type === 'booster' ? 'Booster Box' : 
+                type === 'bundle' ? 'Booster Bundle' : 'Elite Trainer Box';
+
+  const link = slug ? `https://www.cardtrader.com/it/cards/${slug}` :
+               blueprintId ? `https://www.cardtrader.com/it/cards/${blueprintId}` : 
+               `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`Pokémon ${item.name} ${label} ITA`)}`;
+
   return `
     <tr data-set-id="${item.setId}" class="clickable-row">
       <td>
@@ -287,12 +346,7 @@ function renderSealedRow(item, index) {
       </td>
       <td><span class="price-tag neutral">${formatPrice(item.price)}</span></td>
       <td>
-        <a href="${
-            item.bbSlug ? `https://www.cardtrader.com/it/cards/${item.bbSlug}` :
-            item.etbSlug ? `https://www.cardtrader.com/it/cards/${item.etbSlug}` :
-            item.blueprintId ? `https://www.cardtrader.com/it/cards/${item.blueprintId}` : 
-            `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`Pokémon ${item.name} Sealed`)}`
-          }" 
+        <a href="${link}" 
            target="_blank" rel="noopener" class="sealed-link" title="Vedi su CardTrader">
           🔗
         </a>

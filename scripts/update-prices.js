@@ -19,7 +19,7 @@ const CT_HEADERS = {
   'Accept': 'application/json'
 };
 
-const SETS_TO_SCAN = 15; 
+const SETS_TO_SCAN = 35; 
 
 // Helper per i rate limit e le fetch
 async function sleep(ms) {
@@ -99,10 +99,13 @@ async function runUpdate() {
       // ---- ESTRAZIONE SEALED ----
       const sealedBps = blueprints.filter(b => [67, 68, 60, 59].includes(b.category_id));
       let bbPrice = null;
+      let bundlePrice = null;
       let etbPrice = null;
       let bbSlug = null;
+      let bundleSlug = null;
       let etbSlug = null;
       let bbBlueprintId = null;
+      let bundleBlueprintId = null;
       let etbBlueprintId = null;
       for (const bp of sealedBps) {
          const nameLower = bp.name.toLowerCase();
@@ -119,22 +122,27 @@ async function runUpdate() {
                else if (typeof pRes === 'object' && pRes !== null) {
                  for(const k of Object.keys(pRes)) arr = arr.concat(pRes[k]);
                }
-               // valid IT sealed
-               const valid = arr.filter(p => p.pokemon_language === 'it' || p.properties_hash?.pokemon_language === 'it' || p.language === 'it' || !p.properties_hash?.pokemon_language);
+               // Filtra per lingua italiana
+               const itProducts = arr.filter(p => {
+                 const props = p.properties_hash || {};
+                 return props.pokemon_language === 'it';
+               });
+               // Fallback: se nessun prodotto ITA, usa tutti (sealed spesso non ha lingua specificata)
+               const valid = itProducts.length > 0 ? itProducts : arr;
                if (valid.length > 0) {
                   const minP = Math.min(...valid.map(p => p.price.cents)) / 100;
                   // If we find a bundle but already found a real box, do not overwrite. If box not found, use bundle.
-                  if (isBB && !bbPrice) {
+                  if (isBB && (!bbPrice || minP < bbPrice)) {
                     bbPrice = minP;
                     bbSlug = bp.slug;
                     bbBlueprintId = bp.id;
                   }
-                  if (isBundle && !bbPrice) {
-                    bbPrice = minP;
-                    bbSlug = bp.slug;
-                    bbBlueprintId = bp.id;
+                  if (isBundle && (!bundlePrice || minP < bundlePrice)) {
+                    bundlePrice = minP;
+                    bundleSlug = bp.slug;
+                    bundleBlueprintId = bp.id;
                   }
-                  if (isETB && !etbPrice) {
+                  if (isETB && (!etbPrice || minP < etbPrice)) {
                     etbPrice = minP;
                     etbSlug = bp.slug;
                     etbBlueprintId = bp.id;
@@ -145,14 +153,17 @@ async function runUpdate() {
       }
       finalData.sealed[set.id] = { 
         bbPrice, 
+        bundlePrice,
         etbPrice, 
         bbSlug, 
+        bundleSlug,
         etbSlug, 
         bbBlueprintId, 
+        bundleBlueprintId,
         etbBlueprintId, 
         name: setIt.name 
       };
-      console.log(`  📦 Dati Sealed -> BB/Bundle: ${bbPrice || 'N/D'}€, ETB: ${etbPrice || 'N/D'}€`);
+      console.log(`  📦 Dati Sealed -> BB: ${bbPrice || 'N/D'}€, Bundle: ${bundlePrice || 'N/D'}€, ETB: ${etbPrice || 'N/D'}€`);
       // ---- FINE ESTRAZIONE SEALED ----
 
       // Scansioniamo TUTTE le carte del set per avere copertura totale (comuni incluse)

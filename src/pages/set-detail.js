@@ -9,10 +9,23 @@ let currentContainer = null;
 
 export async function renderSetDetail(container, setId) {
   const setData = await getSet(setId);
+  const localData = await getLocalPrices(); // Carica prezzi locali subito
+
   allCards = setData.cards || [];
   currentContainer = container;
   priceMap = new Map();
   rarityMap = new Map();
+
+  // Popola priceMap subito con i dati locali per permettere l'ordinamento iniziale
+  if (localData && localData.cards) {
+    allCards.forEach(c => {
+      const lp = localData.cards[c.id]?.priceITNM;
+      if (lp) priceMap.set(c.id, lp);
+      
+      const lr = localData.cards[c.id]?.rarity;
+      if (lr) rarityMap.set(c.id, lr);
+    });
+  }
 
   // Extract unique rarities from card data (if available at set level)
   const rarities = [...new Set(allCards.map(c => c.rarity).filter(Boolean))].sort();
@@ -40,11 +53,11 @@ export async function renderSetDetail(container, setId) {
       <div class="filter-bar">
         <input type="text" class="search-input" id="set-filter" placeholder="Filtra carte per nome..." style="max-width:300px;">
         <select class="search-select" id="set-sort">
+          <option value="price-desc" selected>💰 Prezzo ↓</option>
+          <option value="price-asc">💰 Prezzo ↑</option>
           <option value="number">📋 Per numero</option>
           <option value="name-asc">🔤 A → Z</option>
           <option value="name-desc">🔤 Z → A</option>
-          <option value="price-desc">💰 Prezzo ↓</option>
-          <option value="price-asc">💰 Prezzo ↑</option>
         </select>
         ${rarities.length > 0 ? `
           <select class="search-select" id="set-rarity-filter">
@@ -77,7 +90,10 @@ export async function renderSetDetail(container, setId) {
   // Click handlers
   bindCardClicks(container);
 
-  // Load prices asynchronously for all cards (in batches)
+  // Apply initial sort (Price Desc)
+  applySort();
+
+  // Load prices asynchronously for all cards (in batches) to get any live updates
   loadPricesAsync(allCards, container);
 }
 
@@ -91,7 +107,9 @@ function applyFilters() {
 
   currentContainer.querySelectorAll('.card-list-item').forEach(item => {
     const nameMatch = item.dataset.name.toLowerCase().includes(q);
-    const rarityMatch = !rarity || item.dataset.rarity === rarity;
+    const itemRarity = (item.dataset.rarity || '').trim().toLowerCase();
+    const filterRarity = rarity.trim().toLowerCase();
+    const rarityMatch = !rarity || itemRarity === filterRarity;
     const show = nameMatch && rarityMatch;
     item.style.display = show ? '' : 'none';
     if (show) visible++;
@@ -158,7 +176,7 @@ function bindCardClicks(container) {
 
 function renderCardItem(card, index) {
   const thumb = card.image ? cardThumbUrl(card.image) : '';
-  const rarity = card.rarity || '';
+  const rarity = card.rarity || rarityMap.get(card.id) || '';
   return `
     <div class="card-list-item" data-card-id="${card.id}" data-name="${card.name}" data-rarity="${rarity}" data-index="${index}">
       ${thumb ? `<img src="${thumb}" alt="${card.name}" loading="lazy">` : '<div style="aspect-ratio:367/512;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);"></div>'}
@@ -194,8 +212,13 @@ async function loadPricesAsync(cards, container) {
           priceMap.set(card.id, price);
           if (priceEl) priceEl.textContent = formatPrice(price);
         }
-        // Store rarity if fetched
-        if (card.rarity) rarityMap.set(card.id, card.rarity);
+        // Store and update rarity in DOM for filtering
+        const r = card.rarity || '';
+        if (r) {
+          rarityMap.set(card.id, r);
+          const cardEl = document.querySelector(`.card-list-item[data-card-id="${card.id}"]`);
+          if (cardEl) cardEl.dataset.rarity = r;
+        }
       }
       loaded++;
     });
@@ -219,7 +242,7 @@ function updateRarityFilter() {
   let raritySelect = document.getElementById('set-rarity-filter');
   const filterBar = document.querySelector('.filter-bar');
   const allRarities = [...new Set(
-    allCards.map(c => c.rarity || rarityMap.get(c.id)).filter(Boolean)
+    allCards.map(c => (c.rarity || rarityMap.get(c.id) || '').trim()).filter(Boolean)
   )].sort();
 
   if (allRarities.length === 0) return;
