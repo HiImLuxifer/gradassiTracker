@@ -235,7 +235,7 @@ export async function renderSealedLeaderboard(container) {
          const sl = localData.sealed[box.setId];
          if (sl) {
             if (sl.bbPrice) box.price = sl.bbPrice;
-            if (sl.bbBlueprintId) box.blueprintId = sl.bbBlueprintId;
+            if (sl.bbBlueprintId) box.bbBlueprintId = sl.bbBlueprintId;
             if (sl.bbSlug) box.bbSlug = sl.bbSlug;
          }
       });
