@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-18T11:05:05.847Z",
+  "updatedAt": "2026-05-04T12:47:47.139Z",
   "cards": {
     "me03-001": {
       "name": "Spinarak",
@@ -19819,104 +19819,307 @@
   },
   "sealed": {
     "me03": {
-      "bbPrice": 139.64,
-      "etbPrice": 48.28,
-      "bbBlueprintId": 367209,
+      "bbPrice": 85.64,
+      "bundlePrice": 35.42,
+      "etbPrice": 45.64,
+      "bbBlueprintId": 367210,
+      "bundleBlueprintId": 367215,
       "etbBlueprintId": 367212,
       "name": "Equilibrio Perfetto"
     },
     "me02.5": {
-      "bbPrice": 43,
-      "etbPrice": 65,
-      "bbBlueprintId": 359473,
+      "bbPrice": null,
+      "bundlePrice": 37.42,
+      "etbPrice": 65.18,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 359473,
       "etbBlueprintId": 359471,
       "name": "Ascesa Eroica"
     },
     "me02": {
       "bbPrice": 196.64,
-      "etbPrice": 58.64,
+      "bundlePrice": 43.64,
+      "etbPrice": 50.64,
       "bbBlueprintId": 349984,
+      "bundleBlueprintId": 349986,
       "etbBlueprintId": 349988,
       "name": "Flamme Spettrali"
     },
     "me01": {
-      "bbPrice": 176.64,
-      "etbPrice": 65.64,
-      "bbBlueprintId": 341926,
-      "etbBlueprintId": 341896,
+      "bbPrice": 54.5,
+      "bundlePrice": 40.52,
+      "etbPrice": 61.99,
+      "bbBlueprintId": 341928,
+      "bundleBlueprintId": 347728,
+      "etbBlueprintId": 341898,
       "name": "Megaevoluzione"
     },
     "mep": {
       "bbPrice": null,
+      "bundlePrice": null,
       "etbPrice": null,
       "bbSlug": null,
+      "bundleSlug": null,
       "etbSlug": null,
       "bbBlueprintId": null,
+      "bundleBlueprintId": null,
       "etbBlueprintId": null,
       "name": "MEP Black Star Promos"
     },
     "sv10.5b": {
-      "bbPrice": 34.52,
-      "etbPrice": 61.28,
-      "bbBlueprintId": 331812,
+      "bbPrice": null,
+      "bundlePrice": 34.52,
+      "etbPrice": 55.64,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 331812,
       "etbBlueprintId": 331810,
       "name": "Luce Nera"
     },
     "sv10.5w": {
-      "bbPrice": 34.52,
-      "etbPrice": 63.99,
-      "bbBlueprintId": 331813,
+      "bbPrice": null,
+      "bundlePrice": 34.52,
+      "etbPrice": 55.64,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 331813,
       "etbBlueprintId": 331811,
       "name": "Fuoco Bianco"
     },
     "sv10": {
-      "bbPrice": 189.64,
+      "bbPrice": 129.64,
+      "bundlePrice": 54.99,
       "etbPrice": 90.64,
-      "bbBlueprintId": 326985,
+      "bbBlueprintId": 326995,
+      "bundleBlueprintId": 327019,
       "etbBlueprintId": 326997,
       "name": "Rivali Predestinati"
     },
     "sv09": {
-      "bbPrice": 159.54,
-      "etbPrice": 60.64,
-      "bbBlueprintId": 316516,
+      "bbPrice": 95.54,
+      "bundlePrice": 43.11,
+      "etbPrice": 55.64,
+      "bbBlueprintId": 327841,
+      "bundleBlueprintId": 316518,
       "etbBlueprintId": 316521,
       "name": "Avventure Insieme"
     },
     "sv08.5": {
-      "bbPrice": 46.57,
+      "bbPrice": null,
+      "bundlePrice": 46.57,
       "etbPrice": 80.64,
-      "bbBlueprintId": 310225,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 310225,
       "etbBlueprintId": 310247,
       "name": "Evoluzioni Prismatiche"
     },
     "sv08": {
-      "bbPrice": 164.99,
-      "etbPrice": 110.64,
-      "bbBlueprintId": 299916,
+      "bbPrice": 140.64,
+      "bundlePrice": 49.64,
+      "etbPrice": 111.64,
+      "bbBlueprintId": 317163,
+      "bundleBlueprintId": 299928,
       "etbBlueprintId": 299925,
       "name": "Scintille Folgoranti"
     },
     "sv07": {
-      "bbPrice": 159.64,
+      "bbPrice": 140.54,
+      "bundlePrice": 40.52,
       "etbPrice": 65.64,
-      "bbBlueprintId": 292090,
+      "bbBlueprintId": 292091,
+      "bundleBlueprintId": 292099,
       "etbBlueprintId": 292101,
       "name": "Corona Astrale"
     },
     "sv06.5": {
-      "bbPrice": 38.52,
+      "bbPrice": null,
+      "bundlePrice": 38.52,
       "etbPrice": 54.5,
-      "bbBlueprintId": 287985,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 287985,
       "etbBlueprintId": 288001,
       "name": "Segreto Fiabesco"
     },
     "sv06": {
-      "bbPrice": 44.64,
+      "bbPrice": 130.64,
+      "bundlePrice": 44.64,
       "etbPrice": 70.53,
-      "bbBlueprintId": 282002,
+      "bbBlueprintId": 289479,
+      "bundleBlueprintId": 282002,
       "etbBlueprintId": 282006,
       "name": "Crepuscolo Mascherato"
+    },
+    "sv05": {
+      "bbPrice": 169.05,
+      "bundlePrice": 30.4,
+      "etbPrice": 40.52,
+      "bbBlueprintId": 275351,
+      "bundleBlueprintId": 275778,
+      "etbBlueprintId": 275774,
+      "name": "Cronoforze"
+    },
+    "sv04.5": {
+      "bbPrice": null,
+      "bundlePrice": 58.28,
+      "etbPrice": 100.64,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 270253,
+      "etbBlueprintId": 270264,
+      "name": "Destino di Paldea"
+    },
+    "sv04": {
+      "bbPrice": 95.64,
+      "bundlePrice": 75.62,
+      "etbPrice": 55.64,
+      "bbBlueprintId": 317176,
+      "bundleBlueprintId": 324707,
+      "etbBlueprintId": 258593,
+      "name": "Paradosso Temporale"
+    },
+    "sv03.5": {
+      "bbPrice": null,
+      "bundlePrice": 80.64,
+      "etbPrice": 395,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 258621,
+      "etbBlueprintId": 258656,
+      "name": "151"
+    },
+    "sv03": {
+      "bbPrice": 169.99,
+      "bundlePrice": 80.62,
+      "etbPrice": 200.63,
+      "bbBlueprintId": 317174,
+      "bundleBlueprintId": 248440,
+      "etbBlueprintId": 248443,
+      "name": "Ossidiana Infuocata"
+    },
+    "sv02": {
+      "bbPrice": 158.49,
+      "bundlePrice": null,
+      "etbPrice": 72.64,
+      "bundleSlug": null,
+      "bbBlueprintId": 243552,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 243562,
+      "name": "Evoluzioni a Paldea"
+    },
+    "sv01": {
+      "bbPrice": 100.64,
+      "bundlePrice": null,
+      "etbPrice": 104.64,
+      "bundleSlug": null,
+      "bbBlueprintId": 317181,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 237248,
+      "name": "Scarlatto e Violetto"
+    },
+    "swsh12.5": {
+      "bbPrice": null,
+      "bundlePrice": 250.64,
+      "etbPrice": 169.64,
+      "bbSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": 312742,
+      "etbBlueprintId": 229208,
+      "name": "Zenit Regale"
+    },
+    "swsh12": {
+      "bbPrice": 399.64,
+      "bundlePrice": null,
+      "etbPrice": 142.64,
+      "bundleSlug": null,
+      "bbBlueprintId": 224160,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 224156,
+      "name": "Tempesta Argentata"
+    },
+    "swsh11": {
+      "bbPrice": 358.64,
+      "bundlePrice": null,
+      "etbPrice": 300.63,
+      "bundleSlug": null,
+      "bbBlueprintId": 219704,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 219766,
+      "name": "Origine Perduta"
+    },
+    "swsh10": {
+      "bbPrice": 210.64,
+      "bundlePrice": null,
+      "etbPrice": 149.64,
+      "bundleSlug": null,
+      "bbBlueprintId": 208131,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 222480,
+      "name": "Lucentezza Siderale"
+    },
+    "swsh9": {
+      "bbPrice": 380.64,
+      "bundlePrice": null,
+      "etbPrice": 240,
+      "bundleSlug": null,
+      "bbBlueprintId": 200492,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 273481,
+      "name": "Astri Lucenti"
+    },
+    "swsh8": {
+      "bbPrice": 750.64,
+      "bundlePrice": null,
+      "etbPrice": 884.89,
+      "bundleSlug": null,
+      "bbBlueprintId": 200490,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 167199,
+      "name": "Colpo Fusione"
+    },
+    "swsh7": {
+      "bbPrice": 1990.64,
+      "bundlePrice": null,
+      "etbPrice": 970.64,
+      "bundleSlug": null,
+      "bbBlueprintId": 161018,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 161025,
+      "name": "Evoluzioni Eteree"
+    },
+    "swsh6": {
+      "bbPrice": 1298.64,
+      "bundlePrice": null,
+      "etbPrice": 250.64,
+      "bundleSlug": null,
+      "bbBlueprintId": 155356,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 155359,
+      "name": "Regno Glaciale"
+    },
+    "swsh5": {
+      "bbPrice": 241.07,
+      "bundlePrice": null,
+      "etbPrice": null,
+      "bundleSlug": null,
+      "etbSlug": null,
+      "bbBlueprintId": 151641,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": null,
+      "name": "Stili di Lotta"
+    },
+    "swsh4.5": {
+      "bbPrice": null,
+      "bundlePrice": null,
+      "etbPrice": 150.64,
+      "bbSlug": null,
+      "bundleSlug": null,
+      "bbBlueprintId": null,
+      "bundleBlueprintId": null,
+      "etbBlueprintId": 151477,
+      "name": "Destino Splendente"
     }
   }
 }

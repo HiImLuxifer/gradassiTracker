@@ -1,5 +1,4 @@
 // Main app — SPA router + navbar + footer
-import { renderHome } from './pages/home.js';
 import { renderSets } from './pages/sets.js';
 import { renderSetDetail } from './pages/set-detail.js';
 import { renderCardDetail } from './pages/card-detail.js';
@@ -7,7 +6,6 @@ import { renderSearch } from './pages/search.js';
 import { renderAbout } from './pages/about.js';
 import { renderCardLeaderboard } from './pages/card-leaderboard.js';
 import { renderSealedLeaderboard } from './pages/sealed-leaderboard.js';
-import { renderSetLeaderboard } from './pages/set-leaderboard.js';
 
 // --- Navbar ---
 function renderNavbar() {
@@ -15,7 +13,7 @@ function renderNavbar() {
   nav.innerHTML = `
     <div class="nav-inner">
       <div class="nav-logo" id="nav-home-logo">
-        <img src="/public/assets/logo.png" alt="GradassiTracker Logo" class="logo-img">
+        <img src="/assets/logo.png" alt="GradassiTracker Logo" class="logo-img">
         <span>Gradassi<span class="logo-accent">Tracker</span></span>
       </div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
@@ -23,8 +21,6 @@ function renderNavbar() {
         <li><a href="#/" data-nav="home">Home</a></li>
         <li><a href="#/card-leaderboard" data-nav="card-lb">Carte</a></li>
         <li><a href="#/sealed-leaderboard" data-nav="sealed-lb">Sealed</a></li>
-        <li><a href="#/set-leaderboard" data-nav="set-lb">Classifica Set</a></li>
-        <li><a href="#/sets" data-nav="sets">Set</a></li>
         <li><a href="#/search" data-nav="search">Ricerca</a></li>
         <li><a href="#/about" data-nav="about">Info</a></li>
       </ul>
@@ -55,7 +51,7 @@ function renderFooter() {
   footer.innerHTML = `
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="/public/assets/logo.png" alt="" class="footer-logo-img">
+        <img src="/assets/logo.png" alt="" class="footer-logo-img">
         GradassiTracker
       </div>
       <div class="footer-links">
@@ -85,10 +81,6 @@ function updateActiveNav(route) {
       a.classList.add('active');
     } else if (route.startsWith('/sealed-leaderboard') && href === '/sealed-leaderboard') {
       a.classList.add('active');
-    } else if (route.startsWith('/set-leaderboard') && href === '/set-leaderboard') {
-      a.classList.add('active');
-    } else if (route.startsWith('/sets') && href === '/sets') {
-      a.classList.add('active');
     } else if (route.startsWith('/search') && href === '/search') {
       a.classList.add('active');
     } else if (route.startsWith('/about') && href === '/about') {
@@ -113,15 +105,11 @@ async function router() {
 
   try {
     if (route === '/' || route === '') {
-      await renderHome(main);
+      await renderSets(main);
     } else if (route === '/card-leaderboard') {
       await renderCardLeaderboard(main);
     } else if (route === '/sealed-leaderboard') {
       await renderSealedLeaderboard(main);
-    } else if (route === '/set-leaderboard') {
-      await renderSetLeaderboard(main);
-    } else if (route === '/sets') {
-      await renderSets(main);
     } else if (route.startsWith('/set/')) {
       const setId = route.split('/set/')[1];
       await renderSetDetail(main, setId);

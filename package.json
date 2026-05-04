@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "update-prices": "node scripts/update-prices.js",
+    "update-prices:sealed": "node scripts/update-prices-sealed.js",
+    "update-prices:cards": "node scripts/update-prices-cards.js",
+    "update-prices": "npm run update-prices:sealed && npm run update-prices:cards",
     "compress-docs": "node scripts/compress-docs.js"
   },
   "devDependencies": {

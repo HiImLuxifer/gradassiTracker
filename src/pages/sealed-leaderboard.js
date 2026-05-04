@@ -290,9 +290,9 @@ function updateSealedTables() {
     return 0;
   };
 
-  const sortedBooster = [...BOOSTER_BOXES].sort(sortFn);
-  const sortedBundle = [...BOOSTER_BUNDLES].sort(sortFn);
-  const sortedEtb = [...ETB_BOXES].sort(sortFn);
+  const sortedBooster = [...BOOSTER_BOXES].filter(item => item.price > 0).sort(sortFn);
+  const sortedBundle = [...BOOSTER_BUNDLES].filter(item => item.price > 0).sort(sortFn);
+  const sortedEtb = [...ETB_BOXES].filter(item => item.price > 0).sort(sortFn);
 
   const boosterBody = document.getElementById('sealed-booster-body');
   if (boosterBody) {
