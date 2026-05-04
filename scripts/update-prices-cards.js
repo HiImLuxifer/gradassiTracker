@@ -150,6 +150,18 @@ async function runUpdateCards() {
             const minPriceCents = Math.min(...validProducts.map(p => p.price.cents));
             const minPrice = minPriceCents / 100;
 
+            const oldData = finalData.cards[cardEn.id] || {};
+            const history = Array.isArray(oldData.history) ? oldData.history : [];
+            const today = new Date().toISOString().split('T')[0];
+            
+            const lastEntry = history.length > 0 ? history[history.length - 1] : null;
+            if (!lastEntry || lastEntry.date !== today) {
+               history.push({ date: today, price: minPrice });
+            } else {
+               history[history.length - 1].price = minPrice;
+            }
+            if (history.length > 30) history.shift();
+
             finalData.cards[cardEn.id] = {
               name: fullCardIt.name,
               setName: setIt.name,
@@ -157,21 +169,37 @@ async function runUpdateCards() {
               rarity: fullCardIt.rarity || '—',
               priceITNM: minPrice,
               blueprintId: matchingBp.id,
-              slug: matchingBp.slug
+              slug: matchingBp.slug,
+              history: history
             };
             console.log(`✅ Minimo ITA/NM: €${minPrice}`);
           } else {
             console.log(`💨 Nessuna ITA/NM (Fallback a mercato medio)`);
             const fbPrice = fullCardIt.pricing?.cardmarket?.low || fullCardIt.pricing?.cardmarket?.trend || 0;
             if(fbPrice > 0){
+               const minPrice = parseFloat((fbPrice * 1.05).toFixed(2));
+               
+               const oldData = finalData.cards[cardEn.id] || {};
+               const history = Array.isArray(oldData.history) ? oldData.history : [];
+               const today = new Date().toISOString().split('T')[0];
+               
+               const lastEntry = history.length > 0 ? history[history.length - 1] : null;
+               if (!lastEntry || lastEntry.date !== today) {
+                  history.push({ date: today, price: minPrice });
+               } else {
+                  history[history.length - 1].price = minPrice;
+               }
+               if (history.length > 30) history.shift();
+
                finalData.cards[cardEn.id] = {
                   name: fullCardIt.name,
                   setName: setIt.name,
                   image: fullCardIt.image,
                   rarity: fullCardIt.rarity || '—',
-                  priceITNM: parseFloat((fbPrice * 1.05).toFixed(2)),
+                  priceITNM: minPrice,
                   blueprintId: matchingBp.id,
-                  slug: matchingBp.slug
+                  slug: matchingBp.slug,
+                  history: history
                 };
             }
           }

@@ -237,6 +237,7 @@ export async function renderSealedLeaderboard(container) {
             if (sl.bbPrice) box.price = sl.bbPrice;
             if (sl.bbBlueprintId) box.bbBlueprintId = sl.bbBlueprintId;
             if (sl.bbSlug) box.bbSlug = sl.bbSlug;
+            if (sl.bbImage) box.image = sl.bbImage;
          }
       });
       BOOSTER_BUNDLES.forEach(bundle => {
@@ -245,6 +246,7 @@ export async function renderSealedLeaderboard(container) {
             if (sl.bundlePrice) bundle.price = sl.bundlePrice;
             if (sl.bundleBlueprintId) bundle.bundleBlueprintId = sl.bundleBlueprintId;
             if (sl.bundleSlug) bundle.bundleSlug = sl.bundleSlug;
+            if (sl.bundleImage) bundle.image = sl.bundleImage;
          }
       });
       ETB_BOXES.forEach(box => {
@@ -253,6 +255,7 @@ export async function renderSealedLeaderboard(container) {
             if (sl.etbPrice) box.price = sl.etbPrice;
             if (sl.etbBlueprintId) box.etbBlueprintId = sl.etbBlueprintId;
             if (sl.etbSlug) box.etbSlug = sl.etbSlug;
+            if (sl.etbImage) box.image = sl.etbImage;
          }
       });
       const subtitle = container.querySelector('.page-subtitle');
@@ -275,7 +278,7 @@ export async function renderSealedLeaderboard(container) {
     const row = e.target.closest('.clickable-row[data-set-id]');
     if (!row) return;
     if (e.target.closest('.sealed-link')) return;
-    window.location.hash = `#/set/${row.dataset.setId}`;
+    window.location.hash = `#/sealed/${row.dataset.type}/${row.dataset.setId}`;
   });
 }
 
@@ -332,7 +335,7 @@ function renderSealedRow(item, index, type) {
                `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`Pokémon ${item.name} ${label} ITA`)}`;
 
   return `
-    <tr data-set-id="${item.setId}" class="clickable-row">
+    <tr data-set-id="${item.setId}" data-type="${type}" class="clickable-row">
       <td>
         <span class="rank-badge ${rankClass}">${index + 1}</span>
       </td>

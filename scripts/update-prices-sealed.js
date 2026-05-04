@@ -98,6 +98,9 @@ async function runUpdateSealed() {
       let bbBlueprintId = null;
       let bundleBlueprintId = null;
       let etbBlueprintId = null;
+      let bbImage = null;
+      let bundleImage = null;
+      let etbImage = null;
       
       for (const bp of sealedBps) {
          const nameLower = bp.name.toLowerCase();
@@ -124,23 +127,52 @@ async function runUpdateSealed() {
                if (valid.length > 0) {
                   const minP = Math.min(...valid.map(p => p.price.cents)) / 100;
                   if (isBB && (!bbPrice || minP < bbPrice)) {
-                    bbPrice = minP; bbSlug = bp.slug; bbBlueprintId = bp.id;
+                    bbPrice = minP; bbSlug = bp.slug; bbBlueprintId = bp.id; bbImage = bp.image_url;
                   }
                   if (isBundle && (!bundlePrice || minP < bundlePrice)) {
-                    bundlePrice = minP; bundleSlug = bp.slug; bundleBlueprintId = bp.id;
+                    bundlePrice = minP; bundleSlug = bp.slug; bundleBlueprintId = bp.id; bundleImage = bp.image_url;
                   }
                   if (isETB && (!etbPrice || minP < etbPrice)) {
-                    etbPrice = minP; etbSlug = bp.slug; etbBlueprintId = bp.id;
+                    etbPrice = minP; etbSlug = bp.slug; etbBlueprintId = bp.id; etbImage = bp.image_url;
                   }
                }
             } catch(e) {}
          }
       }
       
+      const oldData = finalData.sealed[set.id] || {};
+      const today = new Date().toISOString().split('T')[0];
+
+      const bbHistory = Array.isArray(oldData.bbHistory) ? oldData.bbHistory : [];
+      if (bbPrice) {
+         const lastBB = bbHistory.length > 0 ? bbHistory[bbHistory.length - 1] : null;
+         if (!lastBB || lastBB.date !== today) bbHistory.push({ date: today, price: bbPrice });
+         else bbHistory[bbHistory.length - 1].price = bbPrice;
+         if (bbHistory.length > 30) bbHistory.shift();
+      }
+
+      const bundleHistory = Array.isArray(oldData.bundleHistory) ? oldData.bundleHistory : [];
+      if (bundlePrice) {
+         const lastBundle = bundleHistory.length > 0 ? bundleHistory[bundleHistory.length - 1] : null;
+         if (!lastBundle || lastBundle.date !== today) bundleHistory.push({ date: today, price: bundlePrice });
+         else bundleHistory[bundleHistory.length - 1].price = bundlePrice;
+         if (bundleHistory.length > 30) bundleHistory.shift();
+      }
+
+      const etbHistory = Array.isArray(oldData.etbHistory) ? oldData.etbHistory : [];
+      if (etbPrice) {
+         const lastETB = etbHistory.length > 0 ? etbHistory[etbHistory.length - 1] : null;
+         if (!lastETB || lastETB.date !== today) etbHistory.push({ date: today, price: etbPrice });
+         else etbHistory[etbHistory.length - 1].price = etbPrice;
+         if (etbHistory.length > 30) etbHistory.shift();
+      }
+
       finalData.sealed[set.id] = { 
         bbPrice, bundlePrice, etbPrice, 
         bbSlug, bundleSlug, etbSlug, 
         bbBlueprintId, bundleBlueprintId, etbBlueprintId, 
+        bbImage, bundleImage, etbImage,
+        bbHistory, bundleHistory, etbHistory,
         name: setIt.name 
       };
       console.log(`  📦 Dati Sealed -> BB: ${bbPrice || 'N/D'}€, Bundle: ${bundlePrice || 'N/D'}€, ETB: ${etbPrice || 'N/D'}€`);

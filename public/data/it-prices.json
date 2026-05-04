@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-04T12:47:47.139Z",
+  "updatedAt": "2026-05-04T14:02:21.946Z",
   "cards": {
     "me03-001": {
       "name": "Spinarak",
@@ -19825,6 +19825,27 @@
       "bbBlueprintId": 367210,
       "bundleBlueprintId": 367215,
       "etbBlueprintId": 367212,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/367210/preview_perfect-order-booster-box-18-boosters-perfect-order.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/367215/preview_perfect-order-booster-bundle-perfect-order.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/367212/preview_perfect-order-elite-trainer-box-perfect-order.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 85.64
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 35.42
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 45.64
+        }
+      ],
       "name": "Equilibrio Perfetto"
     },
     "me02.5": {
@@ -19835,6 +19856,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 359473,
       "etbBlueprintId": 359471,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/359473/preview_ascended-heroes-booster-bundle-ascended-heroes.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/359471/preview_ascended-heroes-elite-trainer-box-ascended-heroes.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 37.42
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 65.18
+        }
+      ],
       "name": "Ascesa Eroica"
     },
     "me02": {
@@ -19844,6 +19881,27 @@
       "bbBlueprintId": 349984,
       "bundleBlueprintId": 349986,
       "etbBlueprintId": 349988,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/349984/preview_phantasmal-flames-booster-box-36-boosters-phantasmal-flames.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/349986/preview_phantasmal-flames-booster-bundle-phantasmal-flames.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/349988/preview_phantasmal-flames-elite-trainer-box-10-elite-trainer-boxes-phantasmal-flames.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 196.64
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 43.64
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 50.64
+        }
+      ],
       "name": "Flamme Spettrali"
     },
     "me01": {
@@ -19853,6 +19911,27 @@
       "bbBlueprintId": 341928,
       "bundleBlueprintId": 347728,
       "etbBlueprintId": 341898,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/341928/preview_mega-evolution-booster-box-18-boosters-mega-evolution.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/347728/preview_mega-evolution-booster-bundle-mega-evolution.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/341898/preview_mega-evolution-mega-gardevoir-elite-trainer-box-mega-evolution.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 54.5
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 40.52
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 61.99
+        }
+      ],
       "name": "Megaevoluzione"
     },
     "mep": {
@@ -19865,6 +19944,12 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": null,
       "etbBlueprintId": null,
+      "bbImage": null,
+      "bundleImage": null,
+      "etbImage": null,
+      "bbHistory": [],
+      "bundleHistory": [],
+      "etbHistory": [],
       "name": "MEP Black Star Promos"
     },
     "sv10.5b": {
@@ -19875,6 +19960,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 331812,
       "etbBlueprintId": 331810,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/331812/preview_black-bolt-booster-bundle-black-bolt.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/331810/preview_black-bolt-elite-trainer-box-black-bolt.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 34.52
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 55.64
+        }
+      ],
       "name": "Luce Nera"
     },
     "sv10.5w": {
@@ -19885,6 +19986,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 331813,
       "etbBlueprintId": 331811,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/331813/preview_white-flare-booster-bundle-white-flare.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/331811/preview_white-flare-elite-trainer-box-white-flare.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 34.52
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 55.64
+        }
+      ],
       "name": "Fuoco Bianco"
     },
     "sv10": {
@@ -19894,6 +20011,27 @@
       "bbBlueprintId": 326995,
       "bundleBlueprintId": 327019,
       "etbBlueprintId": 326997,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/326995/preview_destined-rivals-booster-box-18-boosters-destined-rivals.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/327019/preview_destined-rivals-booster-bundle-paradox-rift.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/326997/preview_destined-rivals-elite-trainer-box-destined-rivals.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 129.64
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 54.99
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 90.64
+        }
+      ],
       "name": "Rivali Predestinati"
     },
     "sv09": {
@@ -19903,6 +20041,27 @@
       "bbBlueprintId": 327841,
       "bundleBlueprintId": 316518,
       "etbBlueprintId": 316521,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/327841/preview_journey-together-booster-box-18-boosters-journey-together.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/316518/preview_journey-together-booster-bundle-journey-together.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/316521/preview_journey-together-elite-trainer-box-journey-together.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 95.54
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 43.11
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 55.64
+        }
+      ],
       "name": "Avventure Insieme"
     },
     "sv08.5": {
@@ -19913,6 +20072,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 310225,
       "etbBlueprintId": 310247,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/310225/preview_prismatic-evolutions-booster-bundle-prismatic-evolutions.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/310247/preview_prismatic-evolutions-elite-trainer-box-prismatic-evolutions.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 46.57
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 80.64
+        }
+      ],
       "name": "Evoluzioni Prismatiche"
     },
     "sv08": {
@@ -19922,6 +20097,27 @@
       "bbBlueprintId": 317163,
       "bundleBlueprintId": 299928,
       "etbBlueprintId": 299925,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/317163/preview_surging-sparks-booster-box-18-boosters-surging-sparks.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/299928/preview_surging-sparks-booster-bundle-surging-sparks.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/299925/preview_surging-sparks-elite-trainer-box-surging-sparks.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 140.64
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 49.64
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 111.64
+        }
+      ],
       "name": "Scintille Folgoranti"
     },
     "sv07": {
@@ -19931,6 +20127,27 @@
       "bbBlueprintId": 292091,
       "bundleBlueprintId": 292099,
       "etbBlueprintId": 292101,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/292091/preview_stellar-crown-booster-box-18-boosters-stellar-crown.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/292099/preview_stellar-crown-booster-bundle-stellar-crown.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/292101/preview_stellar-crown-elite-trainer-box-stellar-crown.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 140.54
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 40.52
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 65.64
+        }
+      ],
       "name": "Corona Astrale"
     },
     "sv06.5": {
@@ -19941,6 +20158,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 287985,
       "etbBlueprintId": 288001,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/287985/preview_shrouded-fable-booster-bundle-shrouded-fable.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/288001/preview_shrouded-fable-elite-trainer-box-shrouded-fable.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 38.52
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 54.5
+        }
+      ],
       "name": "Segreto Fiabesco"
     },
     "sv06": {
@@ -19950,6 +20183,27 @@
       "bbBlueprintId": 289479,
       "bundleBlueprintId": 282002,
       "etbBlueprintId": 282006,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/289479/preview_twilight-masquerade-booster-box-18-boosters-temporal-forces.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/282002/preview_twilight-masquerade-booster-bundle-twilight-masquerade.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/282006/preview_twilight-masquerade-elite-trainer-box-twilight-masquerade.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 130.64
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 44.64
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 70.53
+        }
+      ],
       "name": "Crepuscolo Mascherato"
     },
     "sv05": {
@@ -19959,6 +20213,27 @@
       "bbBlueprintId": 275351,
       "bundleBlueprintId": 275778,
       "etbBlueprintId": 275774,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/275351/preview_temporal-forces-booster-box-temporal-forces.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/275778/preview_temporal-forces-booster-bundle-temporal-forces.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/275774/preview_temporal-forces-iron-leaves-elite-trainer-box-temporal-forces.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 169.05
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 30.4
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 40.52
+        }
+      ],
       "name": "Cronoforze"
     },
     "sv04.5": {
@@ -19969,6 +20244,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 270253,
       "etbBlueprintId": 270264,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/270253/preview_paldean-fates-booster-bundle-151.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/270264/preview_paldean-fates-elite-trainer-box-paldean-fates.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 58.28
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 100.64
+        }
+      ],
       "name": "Destino di Paldea"
     },
     "sv04": {
@@ -19978,6 +20269,27 @@
       "bbBlueprintId": 317176,
       "bundleBlueprintId": 324707,
       "etbBlueprintId": 258593,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/317176/preview_paradox-rift-booster-box-18-boosters-paradox-rift.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/324707/preview_paradox-rift-booster-bundle-paradox-rift.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/258593/preview_paradox-rift-iron-valiant-elite-trainer-box-paradox-rift.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 95.64
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 75.62
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 55.64
+        }
+      ],
       "name": "Paradosso Temporale"
     },
     "sv03.5": {
@@ -19988,6 +20300,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 258621,
       "etbBlueprintId": 258656,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/258621/preview_151-booster-bundle-151.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/258656/preview_151-elite-trainer-box-151.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 80.64
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 395
+        }
+      ],
       "name": "151"
     },
     "sv03": {
@@ -19997,6 +20325,27 @@
       "bbBlueprintId": 317174,
       "bundleBlueprintId": 248440,
       "etbBlueprintId": 248443,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/317174/preview_obsidian-flames-booster-box-18-boosters-obsidian-flames.jpg",
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/248440/preview_obsidian-flames-booster-bundle-obsidian-flames.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/248443/preview_obsidian-flames-elite-trainer-box-obsidian-flames.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 169.99
+        }
+      ],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 80.62
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 200.63
+        }
+      ],
       "name": "Ossidiana Infuocata"
     },
     "sv02": {
@@ -20007,6 +20356,22 @@
       "bbBlueprintId": 243552,
       "bundleBlueprintId": null,
       "etbBlueprintId": 243562,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/243552/preview_paldea-evolved-booster-box-paldea-evolved.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/243562/preview_paldea-evolved-elite-trainer-box-paldea-evolved.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 158.49
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 72.64
+        }
+      ],
       "name": "Evoluzioni a Paldea"
     },
     "sv01": {
@@ -20017,6 +20382,22 @@
       "bbBlueprintId": 317181,
       "bundleBlueprintId": null,
       "etbBlueprintId": 237248,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/317181/preview_scarlet-violet-booster-box-18-boosters-scarlet-violet.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/237248/preview_scarlet-violet-miraidon-elite-trainer-box-scarlet-violet.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 100.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 104.64
+        }
+      ],
       "name": "Scarlatto e Violetto"
     },
     "swsh12.5": {
@@ -20027,6 +20408,22 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": 312742,
       "etbBlueprintId": 229208,
+      "bbImage": null,
+      "bundleImage": "https://cardtrader.com/uploads/blueprints/image/312742/preview_crown-zenith-booster-bundle-crown-zenith.jpg",
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/229208/preview_crown-zenith-elite-trainer-box-crown-zenith.jpg",
+      "bbHistory": [],
+      "bundleHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 250.64
+        }
+      ],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 169.64
+        }
+      ],
       "name": "Zenit Regale"
     },
     "swsh12": {
@@ -20037,6 +20434,22 @@
       "bbBlueprintId": 224160,
       "bundleBlueprintId": null,
       "etbBlueprintId": 224156,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/224160/preview_silver-tempest-booster-box-silver-tempest.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/224156/preview_silver-tempest-elite-trainer-box-astral-radiance.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 399.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 142.64
+        }
+      ],
       "name": "Tempesta Argentata"
     },
     "swsh11": {
@@ -20047,6 +20460,22 @@
       "bbBlueprintId": 219704,
       "bundleBlueprintId": null,
       "etbBlueprintId": 219766,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/219704/preview_lost-origin-booster-box-lost-origin.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/219766/preview_lost-origin-elite-trainer-box-lost-origin.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 358.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 300.63
+        }
+      ],
       "name": "Origine Perduta"
     },
     "swsh10": {
@@ -20057,6 +20486,22 @@
       "bbBlueprintId": 208131,
       "bundleBlueprintId": null,
       "etbBlueprintId": 222480,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/208131/preview_astral-radiance-booster-box-astral-radiance.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/222480/preview_astral-radiance-elite-trainer-box-astral-radiance.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 210.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 149.64
+        }
+      ],
       "name": "Lucentezza Siderale"
     },
     "swsh9": {
@@ -20067,6 +20512,22 @@
       "bbBlueprintId": 200492,
       "bundleBlueprintId": null,
       "etbBlueprintId": 273481,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/200492/preview_brilliant-stars-booster-box-brilliant-stars.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/273481/preview_brilliant-stars-pokemon-center-elite-trainer-box-pokemon-center-brilliant-stars.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 380.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 240
+        }
+      ],
       "name": "Astri Lucenti"
     },
     "swsh8": {
@@ -20077,6 +20538,22 @@
       "bbBlueprintId": 200490,
       "bundleBlueprintId": null,
       "etbBlueprintId": 167199,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/200490/preview_fusion-strike-booster-box-18-boosters-fusion-strike.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/167199/preview_fusion-strike-elite-trainer-box-fusion-strike.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 750.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 884.89
+        }
+      ],
       "name": "Colpo Fusione"
     },
     "swsh7": {
@@ -20087,6 +20564,22 @@
       "bbBlueprintId": 161018,
       "bundleBlueprintId": null,
       "etbBlueprintId": 161025,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/161018/preview_evolving-skies-booster-box-evolving-skies.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/161025/preview_evolving-skies-elite-trainer-box-leafeon-umbreon-jolteon-flareon-evolving-skies.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 1990.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 970.64
+        }
+      ],
       "name": "Evoluzioni Eteree"
     },
     "swsh6": {
@@ -20097,6 +20590,22 @@
       "bbBlueprintId": 155356,
       "bundleBlueprintId": null,
       "etbBlueprintId": 155359,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/155356/preview_chilling-reign-booster-box-chilling-reign.jpg",
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/155359/preview_chilling-reign-ice-rider-calyrex-elite-trainer-box-chilling-reign.jpg",
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 1298.64
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 250.64
+        }
+      ],
       "name": "Regno Glaciale"
     },
     "swsh5": {
@@ -20108,6 +20617,17 @@
       "bbBlueprintId": 151641,
       "bundleBlueprintId": null,
       "etbBlueprintId": null,
+      "bbImage": "https://cardtrader.com/uploads/blueprints/image/151641/preview_battle-styles-booster-box-battle-styles.jpg",
+      "bundleImage": null,
+      "etbImage": null,
+      "bbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 241.07
+        }
+      ],
+      "bundleHistory": [],
+      "etbHistory": [],
       "name": "Stili di Lotta"
     },
     "swsh4.5": {
@@ -20119,6 +20639,17 @@
       "bbBlueprintId": null,
       "bundleBlueprintId": null,
       "etbBlueprintId": 151477,
+      "bbImage": null,
+      "bundleImage": null,
+      "etbImage": "https://cardtrader.com/uploads/blueprints/image/151477/preview_shining-fates-elite-trainer-box-shining-fates.jpg",
+      "bbHistory": [],
+      "bundleHistory": [],
+      "etbHistory": [
+        {
+          "date": "2026-05-04",
+          "price": 150.64
+        }
+      ],
       "name": "Destino Splendente"
     }
   }

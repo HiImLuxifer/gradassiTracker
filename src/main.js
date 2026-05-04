@@ -2,6 +2,7 @@
 import { renderSets } from './pages/sets.js';
 import { renderSetDetail } from './pages/set-detail.js';
 import { renderCardDetail } from './pages/card-detail.js';
+import { renderSealedDetail } from './pages/sealed-detail.js';
 import { renderSearch } from './pages/search.js';
 import { renderAbout } from './pages/about.js';
 import { renderCardLeaderboard } from './pages/card-leaderboard.js';
@@ -113,6 +114,10 @@ async function router() {
     } else if (route.startsWith('/set/')) {
       const setId = route.split('/set/')[1];
       await renderSetDetail(main, setId);
+    } else if (route.startsWith('/sealed/')) {
+      const parts = route.split('/');
+      // route = "/sealed/booster/sv08" -> parts = ["", "sealed", "booster", "sv08"]
+      await renderSealedDetail(main, parts[2], parts[3]);
     } else if (route.startsWith('/card/')) {
       const cardId = route.split('/card/')[1];
       await renderCardDetail(main, cardId);

@@ -12,9 +12,10 @@ export async function renderCardDetail(container, cardId) {
   // Applica prezzo locale accurato se esiste
   let bpId = null;
   let bpSlug = null;
+  let localCard = null;
   const localData = await getLocalPrices();
   if (localData && localData.cards && localData.cards[cardId]) {
-    const localCard = localData.cards[cardId];
+    localCard = localData.cards[cardId];
     if (localCard.priceITNM) {
       cmLow = localCard.priceITNM;
       priceSourceLabel = 'Prezzo CardTrader ITA';
@@ -106,6 +107,30 @@ export async function renderCardDetail(container, cardId) {
               ${card.regulationMark ? `<tr><td style="color:var(--text-secondary);padding:0.3rem 0;">Regolamento</td><td style="text-align:right;font-weight:600;">${card.regulationMark}</td></tr>` : ''}
             </table>
           </div>
+
+          ${localCard?.history?.length > 0 ? `
+            <div class="card-info-section">
+              <h3>📈 Storico Prezzi</h3>
+              <div style="background:var(--bg-secondary); border-radius:var(--radius-md); overflow:hidden; margin-top:0.5rem;">
+                <table style="width:100%; text-align:left; border-collapse:collapse; font-size:var(--font-size-sm);">
+                  <thead>
+                    <tr style="background:rgba(255,255,255,0.05); border-bottom:1px solid var(--border-color);">
+                      <th style="padding:0.5rem 0.75rem; font-weight:600;">Data</th>
+                      <th style="padding:0.5rem 0.75rem; font-weight:600; text-align:right;">Prezzo (ITA)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${[...localCard.history].reverse().map((h, i) => `
+                      <tr style="border-bottom:1px solid var(--border-color);">
+                        <td style="padding:0.5rem 0.75rem; color:var(--text-secondary);">${new Date(h.date).toLocaleDateString('it-IT')}</td>
+                        <td style="padding:0.5rem 0.75rem; text-align:right; font-weight:600; color:${i === 0 ? '#48C78E' : 'var(--text-primary)'};">${formatPrice(h.price)}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ` : ''}
 
           ${card.attacks?.length ? `
             <div class="card-info-section">
