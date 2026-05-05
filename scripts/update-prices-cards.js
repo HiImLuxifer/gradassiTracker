@@ -147,20 +147,56 @@ async function runUpdateCards() {
           const fullCardIt = await fetchJson(`${TCGDEX_BASE_IT}/cards/${cardEn.id}`);
 
           if (validProducts.length > 0) {
-            const minPriceCents = Math.min(...validProducts.map(p => p.price.cents));
+            const priceCentsArr = validProducts.map(p => p.price.cents);
+            const minPriceCents = Math.min(...priceCentsArr);
+            
+            // Filtro outlier: rimuovo offerte che sono > 10x il minimo (troll listings)
+            const filteredProducts = validProducts.filter(p => p.price.cents <= minPriceCents * 10);
+            
+            const filteredPriceCents = filteredProducts.map(p => p.price.cents);
+            const maxPriceCents = Math.max(...filteredPriceCents);
+            
             const minPrice = minPriceCents / 100;
+            const maxPrice = maxPriceCents / 100;
+
+            // Disponibilità: somma quantità di tutte le offerte (incluse outlier per volume totale, o solo filtrate?)
+            // Uso solo filtrate per coerenza con il range
+            const availableQty = filteredProducts.reduce((sum, p) => sum + (p.quantity || 1), 0);
+            const offerCount = filteredProducts.length;
+
+            // Fasce di prezzo dinamiche (3 bande basate sul range filtrato)
+            const range = maxPrice - minPrice;
+            let priceBands;
+            if (range <= 0 || offerCount <= 1) {
+              priceBands = null;
+            } else {
+              const third = range / 3;
+              const lowBound = minPrice + third;
+              const midBound = minPrice + third * 2;
+              priceBands = {
+                low: { max: parseFloat(lowBound.toFixed(2)), count: 0 },
+                mid: { max: parseFloat(midBound.toFixed(2)), count: 0 },
+                high: { max: parseFloat(maxPrice.toFixed(2)), count: 0 }
+              };
+              for (const p of validProducts) {
+                const price = p.price.cents / 100;
+                if (price <= lowBound) priceBands.low.count++;
+                else if (price <= midBound) priceBands.mid.count++;
+                else priceBands.high.count++;
+              }
+            }
 
             const oldData = finalData.cards[cardEn.id] || {};
             const history = Array.isArray(oldData.history) ? oldData.history : [];
             const today = new Date().toISOString().split('T')[0];
-            
+
             const lastEntry = history.length > 0 ? history[history.length - 1] : null;
             if (!lastEntry || lastEntry.date !== today) {
                history.push({ date: today, price: minPrice });
             } else {
                history[history.length - 1].price = minPrice;
             }
-            if (history.length > 30) history.shift();
+            if (history.length > 90) history.shift();
 
             finalData.cards[cardEn.id] = {
               name: fullCardIt.name,
@@ -168,28 +204,32 @@ async function runUpdateCards() {
               image: fullCardIt.image,
               rarity: fullCardIt.rarity || '—',
               priceITNM: minPrice,
+              priceMax: maxPrice,
+              availableQty: availableQty,
+              offerCount: offerCount,
+              priceBands: priceBands,
               blueprintId: matchingBp.id,
               slug: matchingBp.slug,
               history: history
             };
-            console.log(`✅ Minimo ITA/NM: €${minPrice}`);
+            console.log(`✅ Min: €${minPrice} | Max: €${maxPrice} | ${availableQty} copie (${offerCount} offerte)`);
           } else {
             console.log(`💨 Nessuna ITA/NM (Fallback a mercato medio)`);
             const fbPrice = fullCardIt.pricing?.cardmarket?.low || fullCardIt.pricing?.cardmarket?.trend || 0;
-            if(fbPrice > 0){
+            if (fbPrice > 0) {
                const minPrice = parseFloat((fbPrice * 1.05).toFixed(2));
-               
+
                const oldData = finalData.cards[cardEn.id] || {};
                const history = Array.isArray(oldData.history) ? oldData.history : [];
                const today = new Date().toISOString().split('T')[0];
-               
+
                const lastEntry = history.length > 0 ? history[history.length - 1] : null;
                if (!lastEntry || lastEntry.date !== today) {
                   history.push({ date: today, price: minPrice });
                } else {
                   history[history.length - 1].price = minPrice;
                }
-               if (history.length > 30) history.shift();
+               if (history.length > 90) history.shift();
 
                finalData.cards[cardEn.id] = {
                   name: fullCardIt.name,
@@ -197,6 +237,10 @@ async function runUpdateCards() {
                   image: fullCardIt.image,
                   rarity: fullCardIt.rarity || '—',
                   priceITNM: minPrice,
+                  priceMax: null,
+                  availableQty: 0,
+                  offerCount: 0,
+                  priceBands: null,
                   blueprintId: matchingBp.id,
                   slug: matchingBp.slug,
                   history: history

@@ -1,12 +1,27 @@
 // Card Leaderboard — top cards ranked by CardTrader price
 import { getModernSets, getSet, getCard, formatPrice, cardThumbUrl, getLocalPrices } from '../api.js';
 
-// How many recent sets to scan for cards
-const SETS_TO_SCAN = 6;
-// How many cards per set to fetch (last N cards contain the secret rares and highly valuable cards)
-const CARDS_PER_SET = 150;
-// Batch size for API calls
-const BATCH_SIZE = 15;
+/**
+ * Calculate weekly price variation from history array
+ */
+function calcWeeklyVariation(history) {
+  if (!history || history.length < 2) return null;
+  const latest = history[history.length - 1];
+  const now = new Date(latest.date);
+  let bestMatch = null;
+  let bestDiff = Infinity;
+  for (let i = history.length - 2; i >= 0; i--) {
+    const d = new Date(history[i].date);
+    const daysDiff = Math.abs((now - d) / (1000 * 60 * 60 * 24) - 7);
+    if (daysDiff < bestDiff) {
+      bestDiff = daysDiff;
+      bestMatch = history[i];
+    }
+  }
+  if (!bestMatch || bestMatch.price === 0) return null;
+  const pct = ((latest.price - bestMatch.price) / bestMatch.price) * 100;
+  return parseFloat(pct.toFixed(1));
+}
 
 export async function renderCardLeaderboard(container) {
   container.innerHTML = `
@@ -31,6 +46,8 @@ export async function renderCardLeaderboard(container) {
           <select class="search-select" id="card-lb-sort">
             <option value="price-desc">💰 Prezzo ↓</option>
             <option value="price-asc">💰 Prezzo ↑</option>
+            <option value="var-desc">📈 Variazione ↑</option>
+            <option value="var-asc">📉 Variazione ↓</option>
             <option value="name-asc">🔤 A → Z</option>
             <option value="name-desc">🔤 Z → A</option>
           </select>
@@ -51,7 +68,7 @@ export async function renderCardLeaderboard(container) {
               <th>Set</th>
               <th>Rarità</th>
               <th>Prezzo Min</th>
-              <th>Trend</th>
+              <th>Variazione 7gg</th>
             </tr>
           </thead>
           <tbody id="card-lb-body"></tbody>
@@ -81,13 +98,14 @@ export async function renderCardLeaderboard(container) {
               rarity: c.rarity,
               setName: c.setName,
               price: c.priceITNM,
-              trend: c.priceITNM // Manca il trend dettagliato, potremmo aggiungerlo allo script futuro
+              history: c.history || [],
+              variation: calcWeeklyVariation(c.history)
             });
           }
         }
         
       } else {
-        // FALLBACK: SE IL FILE NON ESISTE, USO IL VECCHIO METODO (Molto lento)
+        // FALLBACK: SE IL FILE NON ESISTE, USO IL VECCHIO METODO
         statusEl.textContent = `⚠️ Nessun file generato! Analizzo set in TCGdex in tempo reale...`;
         const sets = await getModernSets();
         const recentSets = sets.slice(0, SETS_TO_SCAN);
@@ -120,8 +138,8 @@ export async function renderCardLeaderboard(container) {
                     setName: setData.name,
                     setId: setData.id,
                     price: price,
-                    trend: card.pricing?.cardmarket?.trend || 0,
-                    low: card.pricing?.cardmarket?.low || 0,
+                    history: [],
+                    variation: null
                   });
                 }
               }
@@ -130,7 +148,7 @@ export async function renderCardLeaderboard(container) {
         }
       }
 
-      // 3. Sort by price descending
+      // 3. Sort by price descending initially
       allCardData.sort((a, b) => b.price - a.price);
 
       // 4. Populate rarity filter
@@ -181,6 +199,10 @@ function filterCards(allCards) {
     filtered.sort((a, b) => b.price - a.price);
   } else if (sort === 'price-asc') {
     filtered.sort((a, b) => a.price - b.price);
+  } else if (sort === 'var-desc') {
+    filtered.sort((a, b) => (b.variation || -999) - (a.variation || -999));
+  } else if (sort === 'var-asc') {
+    filtered.sort((a, b) => (a.variation || 999) - (b.variation || 999));
   } else if (sort === 'name-asc') {
     filtered.sort((a, b) => a.name.localeCompare(b.name, 'it'));
   } else if (sort === 'name-desc') {
@@ -197,9 +219,18 @@ function renderTable(cards) {
   tbody.innerHTML = cards.map((c, i) => {
     const thumb = c.image ? cardThumbUrl(c.image) : '';
     const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-    const trendDiff = c.trend - c.price;
-    const trendClass = trendDiff > 0 ? 'positive' : trendDiff < 0 ? 'negative' : 'neutral';
-    const trendSign = trendDiff > 0 ? '↑' : trendDiff < 0 ? '↓' : '—';
+    
+    // Variation badge
+    let varHtml = '<span class="price-tag neutral">—</span>';
+    if (c.variation !== null) {
+      const isPositive = c.variation > 0;
+      const isNeutral = c.variation === 0;
+      const badgeClass = isNeutral ? 'neutral' : (isPositive ? 'negative' : 'positive'); // Invertito: se il prezzo sale (+%), è "male" per chi compra? No, usiamo logica trading standard: Verde = Salito (+), Rosso = Sceso (-).
+      // Aspetta, il design precedente usava Positive per Verde (+). Corretto.
+      const badgeClassFixed = isNeutral ? 'neutral' : (isPositive ? 'positive' : 'negative');
+      const arrow = isNeutral ? '→' : (isPositive ? '▲' : '▼');
+      varHtml = `<span class="variation-badge ${badgeClassFixed}" style="font-size:0.75rem; padding: 0.2rem 0.5rem; animation: none;">${arrow} ${Math.abs(c.variation)}%</span>`;
+    }
 
     return `
       <tr data-card-id="${c.id}" class="clickable-row">
@@ -217,7 +248,7 @@ function renderTable(cards) {
         <td><span class="chip">${c.setName}</span></td>
         <td><span class="rarity-label">${c.rarity}</span></td>
         <td><span class="price-tag neutral">${formatPrice(c.price)}</span></td>
-        <td><span class="price-tag ${trendClass}">${trendSign} ${formatPrice(c.trend)}</span></td>
+        <td>${varHtml}</td>
       </tr>
     `;
   }).join('');

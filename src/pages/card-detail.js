@@ -1,5 +1,67 @@
 import { getCard, cardImageUrl, formatPrice, setLogoUrl, getLocalPrices } from '../api.js';
 
+/**
+ * Calculate weekly price variation from history array
+ */
+function calcWeeklyVariation(history) {
+  if (!history || history.length < 2) return null;
+  const latest = history[history.length - 1];
+  // Find price ~7 days ago
+  const now = new Date(latest.date);
+  let bestMatch = null;
+  let bestDiff = Infinity;
+  for (let i = history.length - 2; i >= 0; i--) {
+    const d = new Date(history[i].date);
+    const daysDiff = Math.abs((now - d) / (1000 * 60 * 60 * 24) - 7);
+    if (daysDiff < bestDiff) {
+      bestDiff = daysDiff;
+      bestMatch = history[i];
+    }
+  }
+  if (!bestMatch || bestMatch.price === 0) return null;
+  const pct = ((latest.price - bestMatch.price) / bestMatch.price) * 100;
+  return parseFloat(pct.toFixed(1));
+}
+
+/**
+ * Build price bands HTML mini bar chart
+ */
+function renderPriceBands(priceBands, minPrice) {
+  if (!priceBands) return '';
+  const total = priceBands.low.count + priceBands.mid.count + priceBands.high.count;
+  if (total === 0) return '';
+
+  const pctLow = Math.round((priceBands.low.count / total) * 100);
+  const pctMid = Math.round((priceBands.mid.count / total) * 100);
+  const pctHigh = Math.round((priceBands.high.count / total) * 100);
+
+  return `
+    <div class="price-bands">
+      <div class="price-band-row">
+        <span class="price-band-label">€${minPrice.toFixed(2)} – €${priceBands.low.max.toFixed(2)}</span>
+        <div class="price-band-bar-track">
+          <div class="price-band-bar price-band-low" style="width:${Math.max(pctLow, 4)}%"></div>
+        </div>
+        <span class="price-band-count">${priceBands.low.count}</span>
+      </div>
+      <div class="price-band-row">
+        <span class="price-band-label">€${priceBands.low.max.toFixed(2)} – €${priceBands.mid.max.toFixed(2)}</span>
+        <div class="price-band-bar-track">
+          <div class="price-band-bar price-band-mid" style="width:${Math.max(pctMid, 4)}%"></div>
+        </div>
+        <span class="price-band-count">${priceBands.mid.count}</span>
+      </div>
+      <div class="price-band-row">
+        <span class="price-band-label">€${priceBands.mid.max.toFixed(2)} – €${priceBands.high.max.toFixed(2)}</span>
+        <div class="price-band-bar-track">
+          <div class="price-band-bar price-band-high" style="width:${Math.max(pctHigh, 4)}%"></div>
+        </div>
+        <span class="price-band-count">${priceBands.high.count}</span>
+      </div>
+    </div>
+  `;
+}
+
 export async function renderCardDetail(container, cardId) {
   const card = await getCard(cardId);
   const imgUrl = card.image ? cardImageUrl(card.image) : '';
@@ -8,7 +70,7 @@ export async function renderCardDetail(container, cardId) {
 
   let cmLow = pricing?.low;
   let priceSourceLabel = 'Minimo Globale';
-  
+
   // Applica prezzo locale accurato se esiste
   let bpId = null;
   let bpSlug = null;
@@ -26,6 +88,40 @@ export async function renderCardDetail(container, cardId) {
     if (localCard.slug) {
       bpSlug = localCard.slug;
     }
+  }
+
+  // Market intelligence data
+  const hasMarketData = localCard && (localCard.priceMax != null || localCard.availableQty > 0);
+  const weeklyVar = localCard?.history ? calcWeeklyVariation(localCard.history) : null;
+  const priceBandsHtml = localCard?.priceBands ? renderPriceBands(localCard.priceBands, localCard.priceITNM) : '';
+
+  // Variation badge
+  let variationBadge = '';
+  if (weeklyVar !== null) {
+    const isPositive = weeklyVar > 0;
+    const isNeutral = weeklyVar === 0;
+    const badgeClass = isNeutral ? 'neutral' : (isPositive ? 'negative' : 'positive');
+    const arrow = isNeutral ? '→' : (isPositive ? '▲' : '▼');
+    variationBadge = `<span class="variation-badge ${badgeClass}">${arrow} ${Math.abs(weeklyVar)}%</span>`;
+  }
+
+  // Price range bar position (where current price falls in the min-max range)
+  let rangeBarHtml = '';
+  if (localCard?.priceITNM && localCard?.priceMax && localCard.priceMax > localCard.priceITNM) {
+    rangeBarHtml = `
+      <div class="price-range-visual">
+        <div class="price-range-labels">
+          <span>Min ${formatPrice(localCard.priceITNM)}</span>
+          <span>Max ${formatPrice(localCard.priceMax)}</span>
+        </div>
+        <div class="price-range-track">
+          <div class="price-range-fill"></div>
+          <div class="price-range-marker" style="left:0%">
+            <div class="price-range-marker-dot"></div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   container.innerHTML = `
@@ -53,40 +149,78 @@ export async function renderCardDetail(container, cardId) {
             </p>
           </div>
 
-          ${pricing ? `
+          ${pricing || localCard ? `
+            <!-- Main Price + Variation -->
             <div class="card-info-section">
               <h3>💰 Prezzo CardTrader</h3>
-              <div class="card-price-big">${formatPrice(cmLow)}</div>
+              <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                <div class="card-price-big">${formatPrice(cmLow)}</div>
+                ${variationBadge}
+              </div>
               <p style="font-size:var(--font-size-xs);color:var(--text-secondary);margin-top:0.25rem;">
-                ${priceSourceLabel} · Aggiornato ${pricing.updated ? new Date(pricing.updated).toLocaleDateString('it-IT') : 'N/D'}
+                ${priceSourceLabel}${weeklyVar !== null ? ' · Var. settimanale' : ''}
               </p>
             </div>
 
+            <!-- Market Intelligence Grid -->
             <div class="card-info-section">
-              <h3>📊 Dettaglio Prezzi</h3>
-              <div class="card-price-grid">
-                <div class="price-item">
-                  <div class="price-item-label">${priceSourceLabel}</div>
-                  <div class="price-item-value" style="color:#48C78E;">${formatPrice(cmLow)}</div>
+              <h3>📊 Analisi di Mercato</h3>
+              <div class="market-stats-grid">
+                <div class="market-stat-card">
+                  <div class="market-stat-icon">📉</div>
+                  <div class="market-stat-data">
+                    <div class="market-stat-value" style="color:#48C78E;">${formatPrice(localCard?.priceITNM || cmLow)}</div>
+                    <div class="market-stat-label">Prezzo Min</div>
+                  </div>
                 </div>
-                <div class="price-item">
-                  <div class="price-item-label">Trend</div>
-                  <div class="price-item-value" style="color:var(--color-teal-light);">${formatPrice(pricing.trend)}</div>
+                <div class="market-stat-card">
+                  <div class="market-stat-icon">📈</div>
+                  <div class="market-stat-data">
+                    <div class="market-stat-value" style="color:#FF6B6B;">${localCard?.priceMax ? formatPrice(localCard.priceMax) : 'N/D'}</div>
+                    <div class="market-stat-label">Prezzo Max</div>
+                  </div>
                 </div>
-                <div class="price-item">
-                  <div class="price-item-label">Media 1gg</div>
-                  <div class="price-item-value">${formatPrice(pricing.avg1)}</div>
+                <div class="market-stat-card">
+                  <div class="market-stat-icon">📦</div>
+                  <div class="market-stat-data">
+                    <div class="market-stat-value" style="color:var(--color-teal-light);">${localCard?.availableQty || 0}</div>
+                    <div class="market-stat-label">Copie in vendita</div>
+                  </div>
                 </div>
-                <div class="price-item">
-                  <div class="price-item-label">Media 7gg</div>
-                  <div class="price-item-value">${formatPrice(pricing.avg7)}</div>
-                </div>
-                <div class="price-item">
-                  <div class="price-item-label">Media 30gg</div>
-                  <div class="price-item-value">${formatPrice(pricing.avg30)}</div>
+                <div class="market-stat-card">
+                  <div class="market-stat-icon">🏪</div>
+                  <div class="market-stat-data">
+                    <div class="market-stat-value" style="color:var(--color-cream-dark);">${localCard?.offerCount || 0}</div>
+                    <div class="market-stat-label">Venditori</div>
+                  </div>
                 </div>
               </div>
+
+              ${rangeBarHtml}
             </div>
+
+            ${priceBandsHtml ? `
+              <div class="card-info-section">
+                <h3>🎯 Distribuzione Offerte</h3>
+                ${priceBandsHtml}
+              </div>
+            ` : ''}
+
+            ${pricing ? `
+              <div class="card-info-section">
+                <h3>🌍 Riferimento Cardmarket</h3>
+                <div class="card-price-grid">
+                  <div class="price-item">
+                    <div class="price-item-label">Trend</div>
+                    <div class="price-item-value" style="color:var(--color-teal-light);">${formatPrice(pricing.trend)}</div>
+                  </div>
+                  <div class="price-item">
+                    <div class="price-item-label">Minimo</div>
+                    <div class="price-item-value">${formatPrice(pricing.low)}</div>
+                  </div>
+                </div>
+              </div>
+            ` : ''}
           ` : `
             <div class="card-info-section">
               <h3>💰 Prezzo</h3>
@@ -151,8 +285,8 @@ export async function renderCardDetail(container, cardId) {
           ${pricing || localData?.cards[cardId] ? `
             <div style="text-align:center;margin-top:0.5rem;">
               <a href="${
-                  bpSlug ? `https://www.cardtrader.com/it/cards/${bpSlug}` : 
-                  bpId ? `https://www.cardtrader.com/it/cards/${bpId}` : 
+                  bpSlug ? `https://www.cardtrader.com/it/cards/${bpSlug}` :
+                  bpId ? `https://www.cardtrader.com/it/cards/${bpId}` :
                   `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`${card.name} ${card.localId} ${set.name}`)}`
                 }"
                  target="_blank" rel="noopener"

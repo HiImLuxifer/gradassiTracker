@@ -923,3 +923,197 @@ img {
   opacity: 0.8;
   margin-top: 2rem;
 }
+
+/* --- Market Intelligence: Stat Cards Grid --- */
+.market-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.market-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(239, 247, 211, 0.06);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.market-stat-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(239, 247, 211, 0.12);
+}
+
+.market-stat-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.market-stat-data {
+  min-width: 0;
+}
+
+.market-stat-value {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.market-stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* --- Variation Badge --- */
+.variation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+.variation-badge.positive {
+  background: rgba(72, 199, 142, 0.15);
+  color: #48C78E;
+}
+
+.variation-badge.negative {
+  background: rgba(255, 107, 107, 0.15);
+  color: #FF6B6B;
+}
+
+.variation-badge.neutral {
+  background: rgba(74, 158, 172, 0.15);
+  color: var(--color-teal-light);
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* --- Price Range Bar --- */
+.price-range-visual {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(239, 247, 211, 0.06);
+}
+
+.price-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.price-range-track {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.price-range-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #48C78E 0%, var(--color-teal-light) 50%, #FF6B6B 100%);
+  opacity: 0.6;
+}
+
+.price-range-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.price-range-marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #48C78E;
+  border: 2px solid var(--color-navy);
+  box-shadow: 0 0 8px rgba(72, 199, 142, 0.5);
+}
+
+/* --- Price Bands Mini Chart --- */
+.price-bands {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.price-band-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.price-band-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  min-width: 110px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.price-band-bar-track {
+  flex: 1;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.price-band-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.price-band-low {
+  background: linear-gradient(90deg, #48C78E, #5AD4A0);
+}
+
+.price-band-mid {
+  background: linear-gradient(90deg, var(--color-teal), var(--color-teal-light));
+}
+
+.price-band-high {
+  background: linear-gradient(90deg, #FF8C42, #FF6B6B);
+}
+
+.price-band-count {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 20px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .market-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-band-label {
+    min-width: 80px;
+    font-size: 0.65rem;
+  }
+}

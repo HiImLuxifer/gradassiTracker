@@ -148,7 +148,7 @@ async function runUpdateSealed() {
          const lastBB = bbHistory.length > 0 ? bbHistory[bbHistory.length - 1] : null;
          if (!lastBB || lastBB.date !== today) bbHistory.push({ date: today, price: bbPrice });
          else bbHistory[bbHistory.length - 1].price = bbPrice;
-         if (bbHistory.length > 30) bbHistory.shift();
+         if (bbHistory.length > 90) bbHistory.shift();
       }
 
       const bundleHistory = Array.isArray(oldData.bundleHistory) ? oldData.bundleHistory : [];
@@ -156,7 +156,7 @@ async function runUpdateSealed() {
          const lastBundle = bundleHistory.length > 0 ? bundleHistory[bundleHistory.length - 1] : null;
          if (!lastBundle || lastBundle.date !== today) bundleHistory.push({ date: today, price: bundlePrice });
          else bundleHistory[bundleHistory.length - 1].price = bundlePrice;
-         if (bundleHistory.length > 30) bundleHistory.shift();
+         if (bundleHistory.length > 90) bundleHistory.shift();
       }
 
       const etbHistory = Array.isArray(oldData.etbHistory) ? oldData.etbHistory : [];
@@ -164,7 +164,7 @@ async function runUpdateSealed() {
          const lastETB = etbHistory.length > 0 ? etbHistory[etbHistory.length - 1] : null;
          if (!lastETB || lastETB.date !== today) etbHistory.push({ date: today, price: etbPrice });
          else etbHistory[etbHistory.length - 1].price = etbPrice;
-         if (etbHistory.length > 30) etbHistory.shift();
+         if (etbHistory.length > 90) etbHistory.shift();
       }
 
       finalData.sealed[set.id] = { 
