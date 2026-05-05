@@ -2,8 +2,8 @@ name: 📊 Aggiornamento Prezzi Giornaliero
 
 on:
   schedule:
-    # Ogni 4 ore
-    - cron: '0 */4 * * *'
+    # Ogni 6 ore
+    - cron: '0 */6 * * *'
   # Permetti esecuzione manuale dal tab Actions
   workflow_dispatch:
 
