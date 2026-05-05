@@ -18,7 +18,7 @@ const CT_HEADERS = {
   'Accept': 'application/json'
 };
 
-const SETS_TO_SCAN = 35; 
+const SETS_TO_SCAN = 20; 
 
 async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
