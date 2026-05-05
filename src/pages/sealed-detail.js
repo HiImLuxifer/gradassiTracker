@@ -12,6 +12,7 @@ export async function renderSealedDetail(container, type, setId) {
   let price = null;
   let image = null;
   let slug = null;
+  let blueprintId = null;
   let history = [];
   let label = '';
   
@@ -19,18 +20,21 @@ export async function renderSealedDetail(container, type, setId) {
     price = sealedSet.bbPrice;
     image = sealedSet.bbImage;
     slug = sealedSet.bbSlug;
+    blueprintId = sealedSet.bbBlueprintId;
     history = sealedSet.bbHistory || [];
     label = 'Booster Box';
   } else if (type === 'bundle') {
     price = sealedSet.bundlePrice;
     image = sealedSet.bundleImage;
     slug = sealedSet.bundleSlug;
+    blueprintId = sealedSet.bundleBlueprintId;
     history = sealedSet.bundleHistory || [];
     label = 'Booster Bundle';
   } else if (type === 'etb') {
     price = sealedSet.etbPrice;
     image = sealedSet.etbImage;
     slug = sealedSet.etbSlug;
+    blueprintId = sealedSet.etbBlueprintId;
     history = sealedSet.etbHistory || [];
     label = 'Elite Trainer Box';
   }
@@ -97,7 +101,7 @@ export async function renderSealedDetail(container, type, setId) {
           ` : ''}
 
           <div style="text-align:center;margin-top:0.5rem;">
-            <a href="${slug ? `https://www.cardtrader.com/it/cards/${slug}` : `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`Pokémon ${sealedSet.name} ${label} ITA`)}`}"
+            <a href="${slug ? `https://www.cardtrader.com/it/cards/${slug}` : blueprintId ? `https://www.cardtrader.com/it/cards/${blueprintId}` : `https://www.cardtrader.com/it/search?query=${encodeURIComponent(`Pokémon ${sealedSet.name} ${label} ITA`)}`}"
                target="_blank" rel="noopener"
                class="btn btn-primary">
               🛒 Vedi su CardTrader
